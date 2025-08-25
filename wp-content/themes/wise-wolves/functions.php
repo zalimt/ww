@@ -3,6 +3,7 @@
  * Wise Wolves Child Theme Functions
  * 
  * This file contains custom functions for the Wise Wolves child theme.
+ * Based on Astra parent theme.
  * 
  * @package Wise_Wolves
  * @since 1.0.0
@@ -33,7 +34,7 @@ function wise_wolves_enqueue_styles() {
     
     // Enqueue parent theme stylesheet
     wp_enqueue_style(
-        'twentytwentyfive-style',
+        'astra-style',
         get_template_directory_uri() . '/style.css',
         array(),
         $parent_version
@@ -43,8 +44,17 @@ function wise_wolves_enqueue_styles() {
     wp_enqueue_style(
         'wise-wolves-style',
         get_stylesheet_directory_uri() . '/style.css',
-        array( 'twentytwentyfive-style', 'wise-wolves-poppins-font' ),
+        array( 'astra-style', 'wise-wolves-poppins-font' ),
         wp_get_theme()->get( 'Version' )
+    );
+    
+    // Enqueue header JavaScript
+    wp_enqueue_script(
+        'wise-wolves-header-js',
+        get_stylesheet_directory_uri() . '/js/header.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
     );
 }
 add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles', 5 ); // Lower priority so plugin styles can override
@@ -94,7 +104,7 @@ function wise_wolves_acf_json_load_point( $paths ) {
     // Add child theme path (higher priority)
     $paths[] = get_stylesheet_directory() . '/acf-json';
     
-    // Add parent theme path as fallback
+    // Add Astra parent theme path as fallback
     $paths[] = get_template_directory() . '/acf-json';
     
     return $paths;
@@ -127,6 +137,23 @@ function wise_wolves_theme_setup() {
     // Add support for custom background
     add_theme_support( 'custom-background', array(
         'default-color' => 'ffffff',
+    ) );
+    
+    // Register navigation menus
+    register_nav_menus( array(
+        'wise-wolves-primary' => esc_html__( 'Primary Navigation', 'wise-wolves' ),
+        'wise-wolves-footer'  => esc_html__( 'Footer Navigation', 'wise-wolves' ),
+    ) );
+    
+    // Add theme support for HTML5 markup
+    add_theme_support( 'html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'style',
+        'script',
     ) );
 }
 add_action( 'after_setup_theme', 'wise_wolves_theme_setup' );
@@ -186,6 +213,20 @@ function wise_wolves_get_version() {
  * }
  * add_action( 'init', 'wise_wolves_register_post_types' );
  */
+
+/**
+ * Fallback menu for header navigation
+ * Shows a default menu when no menu is assigned
+ */
+function wise_wolves_fallback_menu() {
+    echo '<ul class="wise-wolves-nav-menu">';
+    echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'About us', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/news' ) ) . '">' . esc_html__( 'News', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/services' ) ) . '">' . esc_html__( 'Our services', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/career' ) ) . '">' . esc_html__( 'Career', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="' . esc_url( home_url( '/contacts' ) ) . '">' . esc_html__( 'Contacts', 'wise-wolves' ) . '</a></li>';
+    echo '</ul>';
+}
 
 /**
  * Include additional files

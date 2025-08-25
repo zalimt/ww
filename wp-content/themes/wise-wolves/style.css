@@ -1,11 +1,11 @@
 /*
 Theme Name: Wise Wolves
-Template: twentytwentyfive
+Template: astra
 */
 
-/* ==========================================================================
-   GLOBAL STYLES
-   ========================================================================== */
+
+/* GLOBAL STYLES */
+
 
 .container {
     max-width: 1360px;
@@ -19,11 +19,164 @@ Template: twentytwentyfive
 }
 
 .container h1 strong {
-    color: orange;
+    color: green;
     font-size: 40px;
 }
 
 /* ==========================================================================
-   CUSTOM STYLES
-   Add your custom CSS below this line
+   HEADER STYLES
    ========================================================================== */
+
+.wise-wolves-header {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.wise-wolves-header-container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo Styles */
+.wise-wolves-logo-section {
+    flex-shrink: 0;
+}
+
+.wise-wolves-logo-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.wise-wolves-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Navigation Styles */
+.wise-wolves-navigation {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wise-wolves-nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 40px;
+}
+
+.wise-wolves-nav-menu li {
+    margin: 0;
+}
+
+.wise-wolves-nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.wise-wolves-nav-menu a:hover,
+.wise-wolves-nav-menu a:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.wise-wolves-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wise-wolves-hamburger {
+    width: 25px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .wise-wolves-header-container {
+        padding: 0 15px;
+    }
+    
+    .wise-wolves-logo {
+        height: 40px;
+    }
+    
+    .wise-wolves-navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+    
+    .wise-wolves-navigation.mobile-active {
+        display: block;
+    }
+    
+    .wise-wolves-mobile-toggle {
+        display: flex;
+    }
+    
+    .wise-wolves-mobile-toggle.active .wise-wolves-hamburger:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .wise-wolves-mobile-toggle.active .wise-wolves-hamburger:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .wise-wolves-mobile-toggle.active .wise-wolves-hamburger:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .wise-wolves-nav-menu {
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .wise-wolves-nav-menu a {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+.site-content {
+    margin-top: 90px;
+}
