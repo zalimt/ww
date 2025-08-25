@@ -20,9 +20,14 @@ get_header(); ?>
             $hero_title = get_field('hero_section_title');
             
             if ($hero_title) {
-                // Strip HTML tags and get clean text content for H1
-                $clean_title = wp_strip_all_tags($hero_title);
-                echo '<h1 class="wise-wolves-main-title">' . esc_html($clean_title) . '</h1>';
+                // Remove only block-level tags (p, div, etc.) but keep inline formatting (strong, em, span, etc.)
+                $allowed_tags = '<strong><em><b><i><span><a><small><sup><sub>';
+                $clean_title = strip_tags($hero_title, $allowed_tags);
+                
+                // Remove any wrapping paragraph tags specifically
+                $clean_title = preg_replace('/<\/?p[^>]*>/', '', $clean_title);
+                
+                echo '<h1 class="wise-wolves-main-title">' . $clean_title . '</h1>';
             } else {
                 // Fallback if field is empty
                 echo '<h1 class="wise-wolves-main-title">Wise Wolves</h1>';
