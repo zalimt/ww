@@ -7,6 +7,10 @@ html * {
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .container {
   max-width: 1360px;
   margin: 0 auto;
@@ -142,4 +146,24 @@ html * {
   display: flex;
   align-items: center;
   margin-top: -104px;
+}
+
+.wise-wolves-about,
+.wise-wolves-news,
+.wise-wolves-services,
+.wise-wolves-career,
+.wise-wolves-contacts {
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.wise-wolves-about h2,
+.wise-wolves-news h2,
+.wise-wolves-services h2,
+.wise-wolves-career h2,
+.wise-wolves-contacts h2 {
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: 600;
 }

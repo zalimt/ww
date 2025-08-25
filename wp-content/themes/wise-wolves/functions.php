@@ -72,6 +72,15 @@ function wise_wolves_enqueue_styles() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+    
+    // Enqueue smooth scroll JavaScript
+    wp_enqueue_script(
+        'wise-wolves-smooth-scroll',
+        get_stylesheet_directory_uri() . '/js/smooth-scroll.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles', 5 ); // Lower priority so plugin styles can override
 
@@ -236,11 +245,11 @@ function wise_wolves_get_version() {
  */
 function wise_wolves_fallback_menu() {
     echo '<ul class="wise-wolves-nav-menu">';
-    echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'About us', 'wise-wolves' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( home_url( '/news' ) ) . '">' . esc_html__( 'News', 'wise-wolves' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( home_url( '/services' ) ) . '">' . esc_html__( 'Our services', 'wise-wolves' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( home_url( '/career' ) ) . '">' . esc_html__( 'Career', 'wise-wolves' ) . '</a></li>';
-    echo '<li><a href="' . esc_url( home_url( '/contacts' ) ) . '">' . esc_html__( 'Contacts', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="#about-us">' . esc_html__( 'About us', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="#news">' . esc_html__( 'News', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="#services">' . esc_html__( 'Our services', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="#career">' . esc_html__( 'Career', 'wise-wolves' ) . '</a></li>';
+    echo '<li><a href="#contacts">' . esc_html__( 'Contacts', 'wise-wolves' ) . '</a></li>';
     echo '</ul>';
 }
 

@@ -33,6 +33,46 @@ get_header(); ?>
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about-us" class="wise-wolves-about">
+        <div class="container">
+            <h2>About Us</h2>
+            <!-- Add your about content here -->
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="wise-wolves-news">
+        <div class="container">
+            <h2>News</h2>
+            <!-- Add your news content here -->
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="wise-wolves-services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <!-- Add your services content here -->
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section id="career" class="wise-wolves-career">
+        <div class="container">
+            <h2>Career</h2>
+            <!-- Add your career content here -->
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="wise-wolves-contacts">
+        <div class="container">
+            <h2>Contacts</h2>
+            <!-- Add your contacts content here -->
+        </div>
+    </section>
+
 </main>
 
 <?php get_footer(); ?>
