@@ -15,11 +15,117 @@ Tags: child-theme, custom, wise-wolves
  * Add your custom CSS below this comment
  */
 
-/* Example: Custom site title styling */
-/*
+/* ==========================================================================
+   POPPINS FONT INTEGRATION
+   ========================================================================== */
+
+/* Define Poppins font family variable for easy reuse */
+:root {
+    --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Apply Poppins to common elements */
+body {
+    font-family: var(--font-poppins);
+}
+
+/* Headings with Poppins */
+h1, h2, h3, h4, h5, h6,
+.wp-block-heading,
+.site-title,
+.entry-title {
+    font-family: var(--font-poppins);
+    font-weight: 600; /* Semi-bold for headings */
+}
+
+/* Navigation with Poppins */
+.wp-block-navigation,
+.wp-block-navigation-link,
+nav ul li a {
+    font-family: var(--font-poppins);
+    font-weight: 400; /* Regular for navigation */
+}
+
+/* Buttons with Poppins */
+.wp-block-button__link,
+button,
+input[type="submit"],
+input[type="button"],
+.button {
+    font-family: var(--font-poppins);
+    font-weight: 500; /* Medium for buttons */
+}
+
+/* ==========================================================================
+   POPPINS FONT WEIGHT CLASSES
+   ========================================================================== */
+
+/* Utility classes for different Poppins font weights */
+.poppins-thin { font-family: var(--font-poppins); font-weight: 100; }
+.poppins-extralight { font-family: var(--font-poppins); font-weight: 200; }
+.poppins-light { font-family: var(--font-poppins); font-weight: 300; }
+.poppins-regular { font-family: var(--font-poppins); font-weight: 400; }
+.poppins-medium { font-family: var(--font-poppins); font-weight: 500; }
+.poppins-semibold { font-family: var(--font-poppins); font-weight: 600; }
+.poppins-bold { font-family: var(--font-poppins); font-weight: 700; }
+.poppins-extrabold { font-family: var(--font-poppins); font-weight: 800; }
+.poppins-black { font-family: var(--font-poppins); font-weight: 900; }
+
+/* Italic variations */
+.poppins-italic { font-family: var(--font-poppins); font-style: italic; }
+.poppins-light-italic { font-family: var(--font-poppins); font-weight: 300; font-style: italic; }
+.poppins-medium-italic { font-family: var(--font-poppins); font-weight: 500; font-style: italic; }
+.poppins-bold-italic { font-family: var(--font-poppins); font-weight: 700; font-style: italic; }
+
+/* ==========================================================================
+   CUSTOM WISE WOLVES STYLING
+   ========================================================================== */
+
+/* Site title enhancement with Poppins */
 .site-title {
-    color: #your-custom-color;
+    font-family: var(--font-poppins);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Enhanced readability for content */
+.entry-content,
+.wp-block-post-content {
+    font-family: var(--font-poppins);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================================== */
+
+/* Adjust font sizes for better mobile experience */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    h1, .wp-block-heading h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    h2, .wp-block-heading h2 {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+}
+
+/* ==========================================================================
+   ADDITIONAL CUSTOM STYLES
+   Add your additional custom CSS below this comment
+   ========================================================================== */
+
+/* Example: Custom accent color from theme customizer */
+/*
+.has-wise-wolves-accent-color {
+    color: var(--wp--preset--color--wise-wolves-accent);
 }
 */
-
-/* Import parent theme styles - handled by functions.php */

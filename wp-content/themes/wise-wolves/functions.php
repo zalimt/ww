@@ -14,12 +14,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Enqueue parent and child theme styles
+ * Enqueue parent and child theme styles and fonts
  */
 function wise_wolves_enqueue_styles() {
     // Get parent theme version
     $parent_theme = wp_get_theme( get_template() );
     $parent_version = $parent_theme->get( 'Version' );
+    
+    // Enqueue Poppins Google Font
+    wp_enqueue_style(
+        'wise-wolves-poppins-font',
+        'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+        array(),
+        null
+    );
     
     // Enqueue parent theme stylesheet
     wp_enqueue_style(
@@ -33,7 +41,7 @@ function wise_wolves_enqueue_styles() {
     wp_enqueue_style(
         'wise-wolves-style',
         get_stylesheet_directory_uri() . '/style.css',
-        array( 'twentytwentyfive-style' ),
+        array( 'twentytwentyfive-style', 'wise-wolves-poppins-font' ),
         wp_get_theme()->get( 'Version' )
     );
 }
