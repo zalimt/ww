@@ -7,7 +7,7 @@
  * Author URI:      https://wpcodebox.com
  * Text Domain:     wpcodebox
  * Domain Path:     /languages
- * Version:         1.1.1
+ * Version:         1.2.1
  *
  */
 
@@ -15,11 +15,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('WPCODEBOX2_VERSION', '1.1.1');
+define('WPCODEBOX2_VERSION', '1.2.1');
 
 include_once(__DIR__ . '/src/Bootstrap.php');
 include_once(__DIR__ . '/api.php');
-
 define('WPCODEBOX2_PATH', plugin_dir_path(__FILE__));
 
 $errorSnippetId = false;
@@ -70,6 +69,7 @@ register_activation_hook(__FILE__, function() {
 
 	$snippetsTableName = $wpdb->prefix . 'wpcb_snippets';
 	$foldersTableName = $wpdb->prefix . 'wpcb_folders';
+	$revisionsTableName = $wpdb->prefix . 'wpcb_revisions';
 
 	$sql = "CREATE TABLE `$foldersTableName` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -118,7 +118,15 @@ CREATE TABLE `$snippetsTableName` (
 ALTER TABLE `$snippetsTableName` ADD INDEX( `enabled`, `runType`);
 ALTER TABLE `$snippetsTableName` ADD INDEX( `priority`);
 
-
+CREATE TABLE IF NOT EXISTS `$revisionsTableName` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `snippet_id` int NOT NULL,
+  `old_code` longtext NOT NULL,
+  `star` tinyint NOT NULL,
+  `note` text NOT NULL,
+  `time` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) $charsetCollate;
 ";
 
 	update_option('wpcb2_version', WPCODEBOX2_VERSION);

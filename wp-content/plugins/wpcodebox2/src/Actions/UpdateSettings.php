@@ -54,10 +54,20 @@ class UpdateSettings
             update_option('wpcb_dark_mode', $data['darkMode'], false);
         }
 
+		if(isset($data['disableHover'])) {
+			add_option('wpcb_disable_hover');
+			update_option('wpcb_disable_hover', $data['disableHover'], false);
+		}
+
         if(isset($data['editorInTheMiddle'])) {
             add_option('wpcb_editor_in_the_middle');
             update_option('wpcb_editor_in_the_middle', $data['editorInTheMiddle'], false);
         }
+
+		if(isset($data['numberOfRevisons'])) {
+			add_option('numberOfRevisons');
+			update_option('wpcb_number_of_revisions', $data['numberOfRevisons'], false);
+		}
 
         die;
     }

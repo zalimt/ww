@@ -32,6 +32,11 @@ class GlobalCSS
             foreach ($this->styles as $hook => $priorities) {
                 if (is_array($priorities)) {
                     foreach ($priorities as $priority => $styles) {
+						if($hook === 'custom_gutenberg_editor') {
+							add_action('enqueue_block_editor_assets', function() use ($styles) {
+								wp_add_inline_style('wp-block-library', $styles[0]['code']);
+							}, $priority);
+						} else {
                         add_action($hook, function () use ($styles) {
 
                             $snippetIds = '';
@@ -62,6 +67,7 @@ class GlobalCSS
                             echo "</style>";
 
                         }, $priority);
+						}
                     }
                 }
             }
@@ -79,7 +85,7 @@ class GlobalCSS
 
             $url = admin_url('admin-ajax.php');
             $js = <<<EOD
- <script type='text/javascript'>
+ <script>
 
     addEventListener("storage", (ev) => {
 

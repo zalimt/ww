@@ -14,7 +14,7 @@ class GetSnippet
 		global $wpdb;
 
 		$snippetRepository = new SnippetRepository();
-		$snippet = $snippetRepository->getSnippet($id);
+		$snippet = $snippetRepository->getSnippetWithRevisions($id);
 
 		if(!$snippet) {
 			wp_die('Snippet not found');

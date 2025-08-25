@@ -103,10 +103,9 @@ class SnippetRepository
 
 	public function getSnippetsToExecute()
 	{
-
 		global $wpdb;
 
-		$snippets = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "wpcb_snippets WHERE enabled = 1 AND runType='always' AND codeType != 'txt' ORDER BY priority", ARRAY_A);
+		$snippets = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "wpcb_snippets WHERE enabled = 1 AND runType='always' AND codeType != 'txt' AND codeType !='md' ORDER BY priority", ARRAY_A);
 
 		return $snippets;
 	}
@@ -122,6 +121,30 @@ class SnippetRepository
 		if(isset($snippet['folderId']) && $snippet['folderId'] != 0) {
 			$snippet['folder'] = $this->getFolder($snippet['folderId']);
 		}
+
+		return $snippet;
+	}
+
+	public function getSnippetWithRevisions($snippetId)
+	{
+		$snippetId = intval($snippetId);
+
+		$query = "SELECT * FROM {$this->wpdb->prefix}wpcb_snippets WHERE id = %d";
+		$query = $this->wpdb->prepare($query, $snippetId);
+		$snippet = $this->wpdb->get_row($query, ARRAY_A);
+
+		if(isset($snippet['folderId']) && $snippet['folderId'] != 0) {
+			$snippet['folder'] = $this->getFolder($snippet['folderId']);
+		}
+
+		$revisionsQuery = "SELECT * FROM {$this->wpdb->prefix}wpcb_revisions WHERE snippet_id = %d ORDER BY id DESC";
+		$revisionsQuery = $this->wpdb->prepare($revisionsQuery, $snippetId);
+		$revisions = $this->wpdb->get_results($revisionsQuery, ARRAY_A);
+		foreach($revisions as &$revision) {
+			// Fomat the date as Feb 26, 2021 12:00:00
+			$revision['time'] = date('M d, Y H:i:s', $revision['time']);
+		}
+		$snippet['revisions'] = $revisions;
 
 		return $snippet;
 	}
@@ -234,6 +257,10 @@ class SnippetRepository
 		$query = "DELETE FROM {$this->wpdb->prefix}wpcb_snippets WHERE id = %d";
 		$query = $this->wpdb->prepare($query, $snippetId);
 		$this->wpdb->query($query);
+
+		$deleteRevisionsQuery = "DELETE FROM {$this->wpdb->prefix}wpcb_revisions WHERE snippet_id = %d";
+		$deleteRevisionsQuery = $this->wpdb->prepare($deleteRevisionsQuery, $snippetId);
+		$this->wpdb->query($deleteRevisionsQuery);
 
 		return true;
 	}

@@ -160,6 +160,12 @@ class SnippetToResponseMapper
 			];
 		}
 
+		if($codeType === 'md') {
+			$codeType = [
+				'value' => 'md',
+				'label' => "Markdown"
+			];
+		}
 
 		$runType = $snippet['runType'];
 

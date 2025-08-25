@@ -36,11 +36,13 @@ $slugifier = new \Wpcb2\FunctionalityPlugin\Service\Slugifier();
 	window.WPCB_SAFE_MODE = <?php echo defined('WPCB_SAFE_MODE') ? 'true' : 'false'; ?>;
     window.WPCB_TOGGLES = <?php echo esc_js(get_option('wpcb_toggles', false) ? 'true' : 'false');?>;
 	window.WPCB_API_KEY_IN_WP_CONFIG = <?php echo defined('WPCB_API_KEY') ? 'true' : 'false';?>;
+	window.WPCB_DISABLE_HOVER = <?php echo esc_js(get_option('wpcb_disable_hover', false) ? 'true' : 'false');?>;
     window.WPCB_OXYGEN_INSTALLED = false;
     window.WPCB_BRICKS_INSTALLED = false;
     window.WPCB_ACSS_INSTALLED = false;
 	window.WPCB_FP_PLUGIN_NAME = '<?php echo esc_js( defined('WPCB_FP_PLUGIN_NAME') ? WPCB_FP_PLUGIN_NAME : 'WPCodeBox Functionality Plugin'); ?>';
 	window.WPCB_FP_PLUGIN_FILE_NAME = '<?php echo esc_js( $slugifier->slugify(defined('WPCB_FP_PLUGIN_NAME') ? WPCB_FP_PLUGIN_NAME : 'WPCodeBox Functionality Plugin')); ?>.zip';
+	window.WPCB_NUMBER_OF_REVISIONS = '<?php echo esc_js(get_option('wpcb_number_of_revisions', 10)); ?>';
 
     <?php
 
@@ -105,15 +107,15 @@ $slugifier = new \Wpcb2\FunctionalityPlugin\Service\Slugifier();
 </style>
 <?php if (getenv('WPCODEBOX_DEV')) {
     ?>
-    <script type="text/javascript" src="//localhost:3000/ace/ace.js"></script>
-    <script type="text/javascript" src="//localhost:3000/ace/ext-language_tools.js"></script>
-    <script type="text/javascript" src="//localhost:3000/ace/ext-emmet.js"></script>
-    <script type="text/javascript" src="//localhost:3000/ace/theme-ambiance.js"></script>
-    <script type="text/javascript" src="//localhost:3000/ace/mode-php.js"></script>
-    <script type="text/javascript" src="//localhost:3000/WPCBPHPParser.js"></script>
+    <script type="text/javascript" src="//localhost:3000/build/ace/ace.js"></script>
+    <script type="text/javascript" src="//localhost:3000/build/ace/ext-language_tools.js"></script>
+    <script type="text/javascript" src="//localhost:3000/build/ace/ext-emmet.js"></script>
+    <script type="text/javascript" src="//localhost:3000/build/ace/theme-ambiance.js"></script>
+    <script type="text/javascript" src="//localhost:3000/build/ace/mode-php.js"></script>
+    <script type="text/javascript" src="//localhost:3000/build/WPCBPHPParser.js"></script>
     <div id="root"></div>
-    <script defer async src="http://localhost:3000/static/js/bundle.js"></script>
-    <script defer async src="http://localhost:3000/static/js/main.chunk.js"></script>
+    <script defer async src="http://localhost:3000/build/static/js/bundle.js"></script>
+    <script defer async src="http://localhost:3000/build/static/js/main.chunk.js"></script>
 
     <?php
     if(defined('ACSS_PLUGIN_FILE')) { ?>
@@ -133,11 +135,10 @@ $slugifier = new \Wpcb2\FunctionalityPlugin\Service\Slugifier();
     <script type="text/javascript"
             src="<?php echo $plugin_url; ?>dist/ace/mode-php.js?ver=<?php echo WPCODEBOX2_VERSION; ?>"></script>
     <div id="root"></div>
-    <script src="<?php echo $plugin_url; ?>dist/static/js/main.chunk.js?ver=<?php echo WPCODEBOX2_VERSION; ?>"></script>
-    <script defer src="<?php echo $plugin_url; ?>dist/static/js/runtime-main.js?ver=<?php echo WPCODEBOX2_VERSION; ?>"></script>
+    <script src="<?php echo $plugin_url; ?>dist/static/js/main.js?ver=<?php echo WPCODEBOX2_VERSION; ?>"></script>
 
     <link rel="stylesheet"
-          href="<?php echo $plugin_url; ?>dist/static/css/main.chunk.css?ver=<?php echo WPCODEBOX2_VERSION; ?>">
+          href="<?php echo $plugin_url; ?>dist/static/css/main.css?ver=<?php echo WPCODEBOX2_VERSION; ?>">
 
 
     <?php

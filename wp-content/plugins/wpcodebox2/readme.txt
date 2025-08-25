@@ -1,8 +1,8 @@
 === Easily manage all your WordPress code ===
 Contributors: WPCodeBox 2
 Requires at least: 5.0
-Tested up to: 6.5.3
-Stable tag: 1.1.1
+Tested up to: 6.7.2
+Stable tag: 1.2.1
 
 WPCodeBox is a complete WordPress snippet manager. With WPCodeBox you can manage all of your site's code without touching functions.php.
 
@@ -14,6 +14,27 @@ WPCodeBox is a complete WordPress snippet manager. With WPCodeBox you can manage
 
 == Changelog ==
 
+= 1.2.1 (Released on Jul 8th 2025) =
+
+* Bugfix: Bug when external CSS is rendered in the Functionality Plugin
+* Bugfix: Missing collation from the revisions table causing issues in some cases
+* Bugfix: Screen Options button sometimes appearis in the UI
+* Bugfix: UI disappears in edge case when the Functionality Plugin is enabled
+
+= 1.2.0 (Released on Jul 2nd 2025) =
+
+* New Feature: Show snippet conditions overview on the snippet edit page
+* New Feature: First version of the WPCodeBox API for 3rd party integrations
+* Improvement: Show warning if the ZipArchive library is not installed and trying to generate plugins
+* Improvement: FP Author URI hardcoded to wpcodebox.com
+* Bugfix: "Current URL Is" condition throws error when the FP is enabled
+* Bugfix: Generate plugin and FP Download not working correctly when plugin name is not "wpcodebox2"
+* Bugfix: Error in logs when the FP is enabled and editing a snippet
+* Bugfix: Warnings when the FP is enabled and temp folder is not writable
+* Bugfix: Snippet description not updated until page refresh when downloading a snippet from the cloud
+* Bugfix: Added the correct safe mode link on the WPCodeBox Error page
+* Bugfix: Current user role condition error when the FP is enabled
+* Bugfix: Invalid zip when generating plugins on certain server configs
 
 = 1.1.1 (Released on May 22nd 2024) =
 

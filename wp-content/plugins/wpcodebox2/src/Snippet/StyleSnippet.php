@@ -52,12 +52,31 @@ class StyleSnippet extends Snippet
 					if($folder) {
 						$folder = $folder . '/';
 					}
-					$snippetCode = "\n" .  '<link rel="stylesheet" class="wpcb2-external-style" href="' . $manager->getCodeUrl() . 'assets/css/'  . $folder . $manager->slugify($this->snippetData['title']) . '.css?v='.$version_hash.'"/>' . "\n";
+					$snippetUrl = '<?php ' . $manager->getCodeUrlNoPhpTags() .'."assets/css/' . $folder . $manager->slugify($this->snippetData['title']) . '.css?v=' . $version_hash. '";?>';
 				} else {
-					$snippetCode = '<link rel="stylesheet" class="wpcb2-external-style" href="' . $wpcodeboxDir . '/' . $this->snippetData['id'] . '.css?v=' . $version_hash . '"/>';
+					$snippetUrl = $wpcodeboxDir . '/' . $this->snippetData['id'] . '.css?v=' . $version_hash;
 				}
 
-				$code .= <<<EOD
+				$snippetCode = '<link rel="stylesheet" class="wpcb2-external-style" href="' . $snippetUrl . '"/>';
+
+				if($this->isFp) {
+					$snippetCode = "\n" . $snippetCode . "\n";
+				}
+
+				if($hook === 'custom_gutenberg_editor') {
+
+					$snippetUrl = str_replace(['<?php echo', ';?>'], '', $snippetUrl);
+					$code .= <<<EOD
+add_action('enqueue_block_editor_assets', function() {
+		$conditionCode
+		wp_enqueue_style('wpcb2-gutenberg-editor-style', '$snippetUrl', [], '$version_hash');
+	}, $priority);
+
+
+EOD;
+				}
+				else {
+						$code .= <<<EOD
 add_action('$hook', function() {
         $conditionCode
         ?>
@@ -65,9 +84,10 @@ add_action('$hook', function() {
 
     <?php
     }, $priority);
-
-
 EOD;
+
+
+				}
 			}
 
 		} else {
@@ -91,8 +111,20 @@ EOD;
 					$snippetIds = "wpcb-ids='".$this->snippetData['id'] . "'";
 					$snippetCode = $this->code;
 
+					if($hook === 'custom_gutenberg_editor') {
+						$code .= <<<EOD
+add_action('enqueue_block_editor_assets', function() {
+		$conditionCode
 
-					$code .= <<<EOD
+		wp_add_inline_style('wp-block-library', '$snippetCode');
+	}, $priority);
+
+
+EOD;
+
+					} else {
+
+						$code .= <<<EOD
 add_action('$hook', function() {
 
         $conditionCode
@@ -106,7 +138,7 @@ add_action('$hook', function() {
 
 
 EOD;
-
+					}
 				}
 
 				return $code;
@@ -116,7 +148,8 @@ EOD;
 						$hook['hook'] = 'wp_head';
 						$hook['priority'] = 1000000;
 					}
-					$this->globalCSS->addStyle($hook['hook'], $hook['priority'], $this->code, $this->snippetData['id']);
+						$this->globalCSS->addStyle($hook['hook'], $hook['priority'], $this->code, $this->snippetData['id']);
+
 				}
 			}
 

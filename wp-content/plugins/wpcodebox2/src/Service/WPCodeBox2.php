@@ -208,7 +208,7 @@ class WPCodeBox2
                             }
 
                         </style>
-                        <script type="text/javascript">
+                        <script>
                             (function ($) {
 
                                 $(document).ready(function () {
@@ -309,16 +309,20 @@ class WPCodeBox2
             echo '<style type="text/css">#toplevel_page_wpcodebox2 > a > div.wp-menu-image.dashicons-before > img {width: 24px; padding-top: 7px;}</style>';
         });
 
+		add_action('current_screen', function($screen) {
+			if ($screen->id === 'tools_page_wpcodebox2' || $screen->id === 'toplevel_page_wpcodebox2') {
+				add_filter('screen_options_show_screen', '__return_false');
+			}
+		});
 
         add_action('admin_menu', function() use ($file)
         {
-
-            if (!get_option('wpcb_show_in_tools', false)) {
+			if (!get_option('wpcb_show_in_tools', false)) {
                 add_menu_page('WPCodeBox 2', 'WPCodeBox 2', 'manage_options', 'wpcodebox2', function () {
                     include __DIR__ . '/../../frontend.php';
                 }, plugin_dir_url($file) . '/logo.svg', 111);
             } else {
-                add_management_page('WPCodeBox 2', 'WPCodeBox 2', 'manage_options', 'wpcodebox2', function () {
+				add_management_page('WPCodeBox 2', 'WPCodeBox 2', 'manage_options', 'wpcodebox2', function () {
                     include __DIR__ .'/../../frontend.php';
                 }, 111);
             }
@@ -336,6 +340,26 @@ class WPCodeBox2
 
 			global $wpdb;
 
+			// If current version is less than 1.2.0, create the revisions table
+			if(version_compare($currentVersion, '1.2.0', '<'))
+			{
+				$charsetCollate = $wpdb->get_charset_collate();
+
+
+				$wpdb->query("CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "wpcb_revisions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `snippet_id` int NOT NULL,
+  `old_code` longtext NOT NULL,
+  `star` tinyint NOT NULL,
+  `note` text NOT NULL,
+  `time` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) $charsetCollate
+");
+
+				update_option('wpcb2_version', '1.2.0');
+			}
+
 			if($currentVersion === '1.0.0' || $currentVersion === '1.0.1') {
 				$wpdb->query('ALTER TABLE `' . $wpdb->prefix . 'wpcb_snippets` CHANGE `description` `description` TEXT NOT NULL');
 				$wpdb->query('ALTER TABLE `' . $wpdb->prefix . 'wpcb_snippets` CHANGE `conditions` `conditions` TEXT NOT NULL');
@@ -346,6 +370,8 @@ class WPCodeBox2
 				$wpdb->query('ALTER TABLE `' . $wpdb->prefix . 'wpcb_snippets` CHANGE `code` `code` LONGTEXT NOT NULL, CHANGE `original_code` `original_code` LONGTEXT NOT NULL');
 				update_option('wpcb2_version', '1.0.1');
 			}
+
+
 		});
 
 	}

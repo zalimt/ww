@@ -3,6 +3,7 @@
 namespace Wpcb2\Api;
 
 use Wpcb2\FunctionalityPlugin\Manager;
+use Wpcb2\Repository\RevisionsRepository;
 use Wpcb2\Repository\SnippetRepository;
 use Wpcb2\Service\ExternalFile;
 use Wpcb2\Service\HookMapper;
@@ -147,6 +148,7 @@ class Api
 
 	public function updateSnippet($id, $data)
 	{
+		$revisionsRepository = new RevisionsRepository();
 
 		$error = false;
 
@@ -171,6 +173,7 @@ class Api
 		}
 
 		$snippetRepository = new SnippetRepository();
+		$oldSnippet = $snippetRepository->getSnippet($id);
 
 		$snippetData = [
 			'title' => $data['title'],
@@ -245,6 +248,8 @@ class Api
 		$functionalityPlugin->deleteSnippet($id);
 
 		$snippetRepository->updateSnippet($id, $snippetData);
+		$revisionsRepository->saveRevision($id, $oldSnippet['original_code'], $snippetData['original_code']);
+
 
 		try {
 			$errorPost = false;
@@ -282,7 +287,6 @@ class Api
 		} else {
 			$externalFileService->deleteFile($id);
 		}
-
 
 		$functionalityPlugin->saveSnippet($id);
 
@@ -327,6 +331,7 @@ class Api
 
 		$fp = new \Wpcb2\FunctionalityPlugin\Manager(false);
 		$fp->deleteSnippet($id);
+
 
 		$snippetRepository = new \Wpcb2\Repository\SnippetRepository();
 		$snippetRepository->deleteSnippet($id);

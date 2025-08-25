@@ -13,46 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-/**
- * Compile SCSS to CSS
- */
-function wise_wolves_compile_scss() {
-    $scss_file = get_stylesheet_directory() . '/style.scss';
-    $css_file = get_stylesheet_directory() . '/style.css';
-    
-    // Check if SCSS file exists and is newer than CSS file
-    if ( file_exists( $scss_file ) && ( ! file_exists( $css_file ) || filemtime( $scss_file ) > filemtime( $css_file ) ) ) {
-        
-        // Include SCSS compiler if available
-        if ( class_exists( 'ScssPhp\ScssPhp\Compiler' ) ) {
-            try {
-                $compiler = new ScssPhp\ScssPhp\Compiler();
-                $compiler->setFormatter('ScssPhp\ScssPhp\Formatter\Expanded');
-                
-                $scss_content = file_get_contents( $scss_file );
-                $css_content = $compiler->compile( $scss_content );
-                
-                file_put_contents( $css_file, $css_content );
-            } catch ( Exception $e ) {
-                // Fallback: just copy SCSS content to CSS if compilation fails
-                $scss_content = file_get_contents( $scss_file );
-                file_put_contents( $css_file, $scss_content );
-            }
-        } else {
-            // Fallback: just copy SCSS content to CSS if compiler not available
-            $scss_content = file_get_contents( $scss_file );
-            file_put_contents( $css_file, $scss_content );
-        }
-    }
-}
+
 
 /**
  * Enqueue parent and child theme styles and fonts
  */
 function wise_wolves_enqueue_styles() {
-    // Compile SCSS first
-    wise_wolves_compile_scss();
-    
     // Get parent theme version
     $parent_theme = wp_get_theme( get_template() );
     $parent_version = $parent_theme->get( 'Version' );
@@ -78,10 +44,25 @@ function wise_wolves_enqueue_styles() {
         'wise-wolves-style',
         get_stylesheet_directory_uri() . '/style.css',
         array( 'twentytwentyfive-style', 'wise-wolves-poppins-font' ),
-        filemtime( get_stylesheet_directory() . '/style.css' ) // Use file modification time for cache busting
+        wp_get_theme()->get( 'Version' )
     );
 }
-add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles', 5 ); // Lower priority so plugin styles can override
+
+/**
+ * Ensure WPCodeBox plugin styles have higher priority
+ * This function makes sure plugin CSS can override theme CSS
+ */
+function wise_wolves_prioritize_plugin_styles() {
+    // Increase priority for WPCodeBox styles if they exist
+    global $wp_styles;
+    if ( isset( $wp_styles->registered['wpcodebox-frontend'] ) ) {
+        $wp_styles->registered['wpcodebox-frontend']->extra['after'] = array(
+            '/* WPCodeBox styles have priority over theme styles */'
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'wise_wolves_prioritize_plugin_styles', 20 ); // Higher priority
 
 /**
  * ACF JSON Sync Configuration

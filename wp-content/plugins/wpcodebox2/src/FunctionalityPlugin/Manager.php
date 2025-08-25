@@ -95,6 +95,11 @@ class Manager
 		return '<?php echo plugin_dir_url("' . $this->pluginName . '/plugin.php");?>';
 	}
 
+	public function getCodeUrlNoPhpTags()
+	{
+		return 'echo plugin_dir_url("' . $this->pluginName . '/plugin.php")';
+	}
+
 	public function isEnabled()
 	{
 		return is_dir($this->path);
@@ -257,6 +262,9 @@ class Manager
 		}
 
 		if ($snippet->getCodeType() === 'txt') {
+			return false;
+		}
+		if ($snippet->getCodeType() === 'md') {
 			return false;
 		}
 
@@ -559,6 +567,10 @@ class Manager
 			$snippet = $snippetRepository->getSnippet($snippet['id']);
 			$snippetFactory = new SnippetFactory(new GlobalCSS(), new GlobalJS(), $snippet);
 			$internalSnippet = $snippetFactory->createInternalSnippet(true);
+
+			if($internalSnippet->getCodeType() === 'txt' || $internalSnippet->getCodeType() === 'md') {
+				continue;
+			}
 
 			if($signatures[$internalSnippet->getId()] !== $internalSnippet->getSignature()) {
 				$notMatchingSnippets[] = $internalSnippet->getId();

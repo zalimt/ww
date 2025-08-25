@@ -72,9 +72,9 @@ class JsSnippet extends Snippet
 						$folder = $folder . '/';
 					}
 
-					$snippetCode = "\n" . '<script type="text/javascript" ' . $tagOptionsString . ' src="' . $manager->getCodeUrl() . 'assets/js/' . $folder . $manager->slugify($this->snippetData['title']) . '.js?v=' . $version_hash . '"></script>' . "\n";
+					$snippetCode = "\n" . '<script ' . $tagOptionsString . ' src="' . $manager->getCodeUrl() . 'assets/js/' . $folder . $manager->slugify($this->snippetData['title']) . '.js?v=' . $version_hash . '"></script>' . "\n";
 				} else {
-					$snippetCode = "\n" . '<script type="text/javascript" ' . $tagOptionsString . ' src="' . $wpcodeboxDir . DIRECTORY_SEPARATOR . $this->snippetData['id'] . '.js?v=' . $version_hash . '"></script>' . "\n";
+					$snippetCode = "\n" . '<script ' . $tagOptionsString . ' src="' . $wpcodeboxDir . DIRECTORY_SEPARATOR . $this->snippetData['id'] . '.js?v=' . $version_hash . '"></script>' . "\n";
 				}
 				$conditionCode = $this->getConditionCode();
 
@@ -115,7 +115,7 @@ add_action('$hook', function() {
 
         $conditionCode
         ?>
-        <script type='text/javascript'>
+        <script>
         $snippetCode
         </script>
 

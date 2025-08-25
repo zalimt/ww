@@ -29,7 +29,7 @@ class GlobalJS
                 foreach ($priorities as $priority => $scripts) {
                     add_action($hook, function () use ($scripts) {
 
-                        echo "<script type='text/javascript'>";
+                        echo "<script>";
                         foreach ($scripts as $script) {
                             if(\Wpcb2\ConditionBuilder\ShouldExecute::should_execute($script['id'])) {
                                 echo $script['code'] . "\n";
@@ -57,7 +57,7 @@ class GlobalJS
 
                 $code .= "\n<?php\n\nadd_action('$hook', function () { ?>\n\n";
 
-                $code .= "<script type='text/javascript'>\n";
+                $code .= "<script>\n";
                 foreach ($scripts as $script) {
 
 					$snippetRepository = new SnippetRepository();

@@ -14,11 +14,14 @@ add_action('admin_init', function () {
     if(!current_user_can('manage_options')) {
         return;
     }
-
     $router = new \Wpcb2\Http\Router();
 
     $router->map('GET', '/acs/snippets', [new \Wpcb2\Actions\GetSnippets(), 'execute']);
     $router->map('GET', '/acs/snippets/[i:id]', [new \Wpcb2\Actions\GetSnippet(), 'execute']);
+    $router->map('GET', '/acs/revisions/[i:id]', [new \Wpcb2\Actions\GetRevisions(), 'execute']);
+    $router->map('POST', '/acs/delete_revision/[i:id]', [new \Wpcb2\Actions\DeleteRevision(), 'execute']);
+    $router->map('POST', '/acs/star_revision/[i:revisionId]', [new \Wpcb2\Actions\StarRevision(), 'execute']);
+    $router->map('POST', '/acs/note_revision/[i:revisionId]', [new \Wpcb2\Actions\NoteRevision(), 'execute']);
     $router->map('GET', '/acs/snippets/get_condition_data', [new \Wpcb2\Actions\GetConditionData(), 'execute']);
     $router->map('GET', '/acs/settings', [new \Wpcb2\Actions\GetSettings(), 'execute']);
     $router->map('POST', '/acs/convert_to_condition_builder/[i:id]', [new \Wpcb2\Actions\ConvertSnippetToConditionBuilder(), 'execute']);
