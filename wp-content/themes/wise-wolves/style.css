@@ -119,6 +119,209 @@ input[type="button"],
 }
 
 /* ==========================================================================
+   WISE WOLVES HOME PAGE TEMPLATE STYLES
+   ========================================================================== */
+
+/* Hero Section */
+.wise-wolves-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.wise-wolves-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(0, 123, 186, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Main Title Styling */
+.wise-wolves-main-title {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Subtitle Enhancement */
+.wise-wolves-subtitle {
+    color: #4a5568;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA Button Styling */
+.wise-wolves-cta .wp-block-button__link {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    border: none;
+}
+
+.wise-wolves-cta .wp-block-button__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+}
+
+/* Content Section */
+.wise-wolves-content {
+    position: relative;
+}
+
+/* Section Title */
+.wise-wolves-section-title {
+    color: #2c3e50;
+    position: relative;
+}
+
+.wise-wolves-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border-radius: 2px;
+}
+
+/* Post Cards Grid */
+.wise-wolves-posts .wp-block-post-template {
+    gap: 2rem;
+}
+
+.wise-wolves-post-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wise-wolves-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Post Card Elements */
+.wise-wolves-post-card .wp-block-post-featured-image img {
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.wise-wolves-post-card:hover .wp-block-post-featured-image img {
+    transform: scale(1.05);
+}
+
+.wise-wolves-post-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.wise-wolves-post-title a:hover {
+    color: #3498db;
+}
+
+.wise-wolves-post-excerpt {
+    color: #4a5568;
+    flex-grow: 1;
+}
+
+.wise-wolves-post-date {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* Pagination Styling */
+.wise-wolves-pagination .wp-block-query-pagination-numbers .page-numbers {
+    font-family: var(--font-poppins);
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: 6px;
+    background: #f8f9fa;
+    color: #4a5568;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.wise-wolves-pagination .wp-block-query-pagination-numbers .page-numbers:hover,
+.wise-wolves-pagination .wp-block-query-pagination-numbers .page-numbers.current {
+    background: #3498db;
+    color: white;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR HOME PAGE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .wise-wolves-posts .wp-block-post-template {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wise-wolves-main-title {
+        font-size: 3rem !important;
+    }
+    
+    .wise-wolves-section-title {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .wise-wolves-posts .wp-block-post-template {
+        grid-template-columns: 1fr;
+    }
+    
+    .wise-wolves-main-title {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .wise-wolves-section-title {
+        font-size: 1.75rem !important;
+    }
+    
+    .wise-wolves-subtitle {
+        font-size: 1.125rem !important;
+    }
+    
+    .wise-wolves-hero,
+    .wise-wolves-content {
+        padding-left: var(--wp--preset--spacing--40) !important;
+        padding-right: var(--wp--preset--spacing--40) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .wise-wolves-main-title {
+        font-size: 2rem !important;
+    }
+    
+    .wise-wolves-section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .wise-wolves-post-card .wp-block-post-featured-image img {
+        height: 150px;
+    }
+}
+
+/* ==========================================================================
    ADDITIONAL CUSTOM STYLES
    Add your additional custom CSS below this comment
    ========================================================================== */
