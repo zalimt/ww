@@ -20,8 +20,9 @@ get_header(); ?>
             $hero_title = get_field('hero_section_title');
             
             if ($hero_title) {
-                // Display ACF field content (WYSIWYG field allows HTML)
-                echo '<h1 class="wise-wolves-main-title">' . $hero_title . '</h1>';
+                // Strip HTML tags and get clean text content for H1
+                $clean_title = wp_strip_all_tags($hero_title);
+                echo '<h1 class="wise-wolves-main-title">' . esc_html($clean_title) . '</h1>';
             } else {
                 // Fallback if field is empty
                 echo '<h1 class="wise-wolves-main-title">Wise Wolves</h1>';
