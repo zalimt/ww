@@ -156,3 +156,43 @@ if ( ! function_exists( 'twentytwentyfive_format_binding' ) ) :
 		}
 	}
 endif;
+
+// ACF JSON Sync - Load and Save points for field synchronization
+if ( ! function_exists( 'twentytwentyfive_acf_json_load_point' ) ) :
+	/**
+	 * Sets the load point for ACF JSON files.
+	 *
+	 * @since Twenty Twenty-Five 1.0
+	 *
+	 * @param array $paths Array of paths where ACF should look for JSON files.
+	 * @return array Modified paths array.
+	 */
+	function twentytwentyfive_acf_json_load_point( $paths ) {
+		// Remove original path (optional)
+		unset( $paths[0] );
+		
+		// Add new path
+		$paths[] = get_stylesheet_directory() . '/acf-json';
+		
+		return $paths;
+	}
+endif;
+add_filter( 'acf/settings/load_json', 'twentytwentyfive_acf_json_load_point' );
+
+if ( ! function_exists( 'twentytwentyfive_acf_json_save_point' ) ) :
+	/**
+	 * Sets the save point for ACF JSON files.
+	 *
+	 * @since Twenty Twenty-Five 1.0
+	 *
+	 * @param string $path The path where ACF should save JSON files.
+	 * @return string Modified path.
+	 */
+	function twentytwentyfive_acf_json_save_point( $path ) {
+		// Update path
+		$path = get_stylesheet_directory() . '/acf-json';
+		
+		return $path;
+	}
+endif;
+add_filter( 'acf/settings/save_json', 'twentytwentyfive_acf_json_save_point' );
