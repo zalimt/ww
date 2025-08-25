@@ -14,7 +14,23 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+require_once __DIR__ . '/vendor/autoload.php';
 
+use ScssPhp\ScssPhp\Compiler;
+
+function wise_wolves_compile_scss() {
+    $scss = new Compiler();
+    $scss_file = get_stylesheet_directory() . '/style.scss';
+    $css_file = get_stylesheet_directory() . '/style.css';
+
+    if (file_exists($scss_file)) {
+        $scss_content = file_get_contents($scss_file);
+        $css_content = $scss->compileString($scss_content)->getCss();
+        file_put_contents($css_file, $css_content);
+    }
+}
+
+add_action('wp_enqueue_scripts', 'wise_wolves_compile_scss', 1);
 
 /**
  * Enqueue parent and child theme styles and fonts

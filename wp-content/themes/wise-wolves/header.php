@@ -14,8 +14,6 @@
     
     <header id="masthead" class="wise-wolves-header site-header" role="banner">
         <div class="wise-wolves-header-container">
-            
-            <!-- Logo Section -->
             <div class="wise-wolves-logo-section">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="wise-wolves-logo-link" rel="home">
                     <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/wisewolves-logo-white.svg' ); ?>" 
@@ -23,8 +21,6 @@
                          class="wise-wolves-logo">
                 </a>
             </div>
-            
-            <!-- Navigation Section -->
             <nav class="wise-wolves-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'wise-wolves' ); ?>">
                 <?php
                 wp_nav_menu( array(
@@ -36,8 +32,6 @@
                 ) );
                 ?>
             </nav>
-            
-            <!-- Mobile Menu Toggle -->
             <button class="wise-wolves-mobile-toggle" aria-label="<?php esc_attr_e( 'Toggle navigation', 'wise-wolves' ); ?>">
                 <span class="wise-wolves-hamburger"></span>
                 <span class="wise-wolves-hamburger"></span>
@@ -45,6 +39,6 @@
             </button>
             
         </div>
-    </header><!-- #masthead -->
+    </header>
     
     <div id="content" class="site-content">
