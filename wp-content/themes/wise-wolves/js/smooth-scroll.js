@@ -1,7 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menuLinks = document.querySelectorAll('.wise-wolves-nav-menu a[href^="#"]');
+    // Header menu links
+    const headerMenuLinks = document.querySelectorAll('.wise-wolves-nav-menu a[href^="#"]');
     
-    menuLinks.forEach(link => {
+    // Footer menu links
+    const footerMenuLinks = document.querySelectorAll('.footer-menu a[href^="#"]');
+    
+    // Combine both menu link arrays
+    const allMenuLinks = [...headerMenuLinks, ...footerMenuLinks];
+    
+    allMenuLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');

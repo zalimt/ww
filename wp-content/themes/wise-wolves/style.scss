@@ -13,20 +13,49 @@ html {
 }
 
 .container {
+    width: 100%;
     max-width: 1360px;
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
+}
 
-    h1 {
-        color: blue;
+.ww-btn {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 158.7%;
+    padding: 11px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        strong {
-            color: green;
-            font-size: 40px;
+    &::after {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    &.ww-btn-white {
+        color: #0E2B40;
+        background-color: #fff;
+        &::after {
+            background-image: url('./images/btn-arrow-blue.svg');
+        }
+
+    }
+    &.ww-btn-blue {
+        color: #fff;
+        background-color: #0E2B40;
+        &::after {
+            background-image: url('./images/btn-arrow-white.svg');
         }
     }
 }
+
 
 // HEADER
 
@@ -174,6 +203,44 @@ html {
     display: flex;
     align-items: center;
     margin-top: -104px;
+
+    .title-wrapper {
+        margin-bottom: 30px;
+        max-width: fit-content;
+    }
+
+    .wise-wolves-main-title {
+        color: #FFFFFF;
+        font-size: 70px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        line-height: 100%;
+        text-transform: uppercase;
+
+        span {
+            font-weight: 300;
+            display: block;
+            margin-left: 200px;
+        }
+    }
+
+    .wise-wolves-subtitle {
+        color: #FFF;
+        text-align: right;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .hero-button-wrapper {
+        margin-top: 40px;
+    }
+
+    .ww-btn {
+        max-width: 518px;
+        margin-top: 120px;
+    }
 }
 
 // Section Styles
@@ -191,5 +258,180 @@ html {
         margin-bottom: 40px;
         font-size: 36px;
         font-weight: 600;
+    }
+}
+
+// FOOTER STYLES
+.wise-wolves-footer {
+    position: relative;
+    background: #1a1a1a;
+    color: #FFFFFF;
+    padding: 80px 0 40px;
+    margin-top: 80px;
+
+    .footer-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        overflow: hidden;
+
+        .footer-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    .footer-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-main {
+        display: flex;
+    }
+
+    // Logo Section
+    .footer-logo-section {
+        min-width: fit-content;
+        margin-right: 90px;
+        .footer-logo {
+            margin-bottom: 20px;
+
+            .footer-logo-img {
+                height: auto;
+                width: 220px;
+                display: block;
+            }
+        }
+
+        .footer-copyright {
+            p {
+                color: #FFF;
+                font-size: 11px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+            }
+        }
+    }
+
+    // Menu Section
+    .footer-menu-section {
+        text-align: center;
+
+        .footer-menu-title {
+            color: #C0C0C0;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+
+            li {
+                margin-bottom: 10px;
+
+                a {
+                    color: #FFF;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%;
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+
+    // CTA Section
+    .footer-cta-section {
+        text-align: right;
+        max-width: 480px;
+        align-self: center;
+        margin-left: auto;
+
+        .footer-cta-text {
+            margin-bottom: 25px;
+
+            p {
+                color: #FFF;
+                text-align: right;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+            }
+        }
+
+        .ww-btn {
+            max-width: 400px;
+            margin-left: auto;
+        }
+    }
+
+    // Legal Links
+    .footer-legal {
+        text-align: right;
+        margin-top: 50px;
+
+        .legal-links {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                color: #FFF;
+                text-align: right;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 170%;
+                text-decoration-line: underline;
+
+                &:hover {
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
+
+// Mobile Responsive
+@media (max-width: 768px) {
+    .wise-wolves-footer {
+        padding: 60px 0 30px;
+
+        .footer-main {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .footer-cta-section {
+            text-align: center;
+        }
+
+        .footer-legal {
+            text-align: center;
+
+            .legal-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
     }
 }

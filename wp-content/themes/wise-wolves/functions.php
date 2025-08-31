@@ -253,6 +253,97 @@ function wise_wolves_fallback_menu() {
     echo '</ul>';
 }
 
+function wise_wolves_footer_fallback_menu() {
+    echo '<ul class="footer-menu">';
+    echo '<li><a href="#hero">Home Screen</a></li>';
+    echo '<li><a href="#news">Insights & News</a></li>';
+    echo '<li><a href="#about-us">About Us</a></li>';
+    echo '<li><a href="#services">Our Services</a></li>';
+    echo '<li><a href="#clients">Our clients & Partners</a></li>';
+    echo '<li><a href="#partnership">Partnership Program</a></li>';
+    echo '<li><a href="#career">Career & Corporate culture</a></li>';
+    echo '<li><a href="#contacts">Contacts</a></li>';
+    echo '</ul>';
+}
+
+/**
+ * Add SVG support to WordPress
+ * Allows uploading and displaying SVG files safely
+ */
+
+/**
+ * Allow SVG uploads
+ * 
+ * @param array $mimes Array of allowed mime types
+ * @return array Modified mime types array
+ */
+function wise_wolves_allow_svg_uploads( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'wise_wolves_allow_svg_uploads' );
+
+/**
+ * Fix SVG display in media library
+ * 
+ * @param array $response Response array for media items
+ * @param WP_Post $attachment Attachment post object
+ * @param array $meta Attachment metadata
+ * @return array Modified response array
+ */
+function wise_wolves_fix_svg_thumbnails( $response, $attachment, $meta ) {
+    if ( $response['mime'] === 'image/svg+xml' ) {
+        $response['sizes'] = array(
+            'full' => array(
+                'url' => $response['url'],
+                'width' => $response['width'],
+                'height' => $response['height'],
+                'orientation' => $response['orientation']
+            )
+        );
+    }
+    return $response;
+}
+add_filter( 'wp_prepare_attachment_for_js', 'wise_wolves_fix_svg_thumbnails', 10, 3 );
+
+/**
+ * Sanitize SVG uploads for security
+ * 
+ * @param array $file Uploaded file data
+ * @return array Modified file data
+ */
+function wise_wolves_sanitize_svg_upload( $file ) {
+    if ( $file['type'] === 'image/svg+xml' ) {
+        // Basic SVG sanitization - remove potentially dangerous elements
+        $svg_content = file_get_contents( $file['tmp_name'] );
+        
+        // Remove script tags and event handlers
+        $svg_content = preg_replace( '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/mi', '', $svg_content );
+        $svg_content = preg_replace( '/on\w+\s*=\s*["\'][^"\']*["\']/i', '', $svg_content );
+        
+        // Remove external references
+        $svg_content = preg_replace( '/xlink:href\s*=\s*["\'][^"\']*["\']/i', '', $svg_content );
+        
+        // Write sanitized content back
+        file_put_contents( $file['tmp_name'], $svg_content );
+    }
+    return $file;
+}
+add_filter( 'wp_handle_upload_prefilter', 'wise_wolves_sanitize_svg_upload' );
+
+/**
+ * Add SVG support to customizer
+ * 
+ * @param array $mimes Array of allowed mime types
+ * @return array Modified mime types array
+ */
+function wise_wolves_customizer_svg_support( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'wise_wolves_customizer_svg_support' );
+
 /**
  * Include additional files
  * Uncomment and modify as needed

@@ -22,14 +22,33 @@ get_header(); ?>
 <main class="wise-wolves-home">
     
     <!-- Hero Section -->
-    <section class="wise-wolves-hero" <?php echo $background_style; ?>>
+    <section id="hero" class="wise-wolves-hero" <?php echo $background_style; ?>>
         <div class="container">
-            <h1 class="wise-wolves-main-title">
-                <?php 
-                $hero_title = get_field('hero_section_title');
-                echo $hero_title ? wp_kses($hero_title, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => []]) : 'Wise Wolves';
-                ?>
-            </h1>
+            <div class="title-wrapper">
+                <h1 class="wise-wolves-main-title">
+                    <?php 
+                    $hero_title = get_field('hero_section_title');
+                    echo $hero_title ? wp_kses($hero_title, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => []]) : 'Wise Wolves';
+                    ?>
+                </h1>
+                <?php if ($hero_subtitle = get_field('hero_section_subtitle')): ?>
+                <div class="wise-wolves-subtitle">
+                    <?php echo wp_kses($hero_subtitle, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => []]); ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            
+            <?php 
+            $btn_text = get_field('hero_section_btn_text');
+            $btn_link = get_field('hero_section_btn_link');
+            if ($btn_text && $btn_link): 
+            ?>
+            <div class="hero-button-wrapper">
+                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white">
+                    <?php echo esc_html($btn_text); ?>
+                </a>
+            </div>
+            <?php endif; ?>
         </div>
     </section>
 
