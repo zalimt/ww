@@ -188,6 +188,106 @@ get_header(); ?>
             </div>
         </div>
     </section>
+    <section id="what-sets-us-apart" class="what-sets-us-apart">
+        <div class="container">
+            <div class="what-sets-content">
+                <!-- Main Section -->
+                <div class="what-sets-main">
+                    <!-- Left Side - Venn Diagram Image -->
+                    <div class="venn-diagram-section">
+                        <h2 class="section-title">
+                            <?php 
+                            $title_content = get_field('what_sets_us_apart_title');
+                            echo $title_content ? wp_kses($title_content, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => [], 'br' => []]) : 'What Sets Us Apart';
+                            ?>
+                        </h2>
+                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/what-sets-us-apart-img1.webp'); ?>" alt="What Sets Us Apart Venn Diagram" class="venn-diagram-image">
+                    </div>
+
+                    <!-- Right Side - Text and Portrait -->
+                    <div class="content-section">
+                        <div class="description-text">
+                            <p><?php echo esc_html(get_field('what_sets_us_apart_paragraph')); ?></p>
+                        </div>
+                        
+                        <div class="founder-portrait">
+                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/what-sets-us-apart-img2.webp'); ?>" alt="Founder Portrait" class="portrait-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="founder-section">
+                    <div class="founder-header">
+                        <h2 class="founder-title">
+                            <?php echo esc_html(get_field('what_sets_us_apart_founder_title')); ?>
+                        </h2>
+                        <p class="founder-subtitle">
+                            <?php echo esc_html(get_field('what_sets_us_apart_founder_subitle')); ?>
+                        </p>
+                    </div>
+                    
+                    <div class="founder-bio-box">
+                        <?php
+                        $box_bg = get_field('what_sets_us_apart_box_box_bg');
+                        $box_bg_style = '';
+                        if ($box_bg && is_array($box_bg) && isset($box_bg['url'])) {
+                            $box_bg_style = 'style="background-image: url(' . esc_url($box_bg['url']) . ');"';
+                        }
+                        ?>
+                        <div class="bio-background" <?php echo $box_bg_style; ?>></div>
+                        <div class="bio-content">
+                            <p><?php echo esc_html(get_field('what_sets_us_apart_box_description')); ?></p>
+                        </div>
+                        
+                        <?php 
+                        $btn_text = get_field('what_sets_us_apart_box_btn_text');
+                        $btn_link = get_field('what_sets_us_apart_box_btn_link');
+                        if ($btn_text && $btn_link): ?>
+                            <div class="bio-button">
+                                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white">
+                                    <?php echo esc_html($btn_text); ?>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence Section -->
+    <section id="global-presence" class="global-presence">
+        <div class="container">
+            <div class="global-presence-content">
+                <!-- Left Side - Text Content -->
+                <div class="global-text-section">
+                    <h2 class="global-title">
+                        <?php 
+                        $global_title = get_field('global_presence_title');
+                        echo $global_title ? wp_kses($global_title, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => [], 'br' => []]) : 'Global presence';
+                        ?>
+                    </h2>
+                    
+                    <div class="global-info-box">
+                        <div class="info-box-content">
+                            <?php 
+                            $text_box_content = get_field('global_presence_text_box');
+                            echo $text_box_content ? wp_kses($text_box_content, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => [], 'br' => [], 'p' => []]) : 'Operating globally with a presence in Cyprus, the UAE, and Switzerland.';
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="global-description">
+                        <p><?php echo esc_html(get_field('global_presence_description')); ?></p>
+                    </div>
+                </div>
+
+                <!-- Right Side - Globe Image -->
+                <div class="global-image-section">
+                    <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/ww-global-presence.webp'); ?>" alt="Global Presence Map" class="global-presence-image">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Us Section -->
     <section id="about-us" class="wise-wolves-about">

@@ -691,3 +691,310 @@ html {
     font-size: 16px;
   }
 }
+.what-sets-us-apart {
+  padding: 120px 0;
+  background: #FFFFFF;
+  position: relative;
+}
+.what-sets-us-apart .what-sets-main {
+  display: flex;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section {
+  width: 45%;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section .section-title {
+  color: #000;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+  margin-bottom: 30px;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section .section-title span {
+  color: #D1D1D1;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section .venn-diagram-image {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  display: block;
+  margin-bottom: 20px;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section .founder-section .founder-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section .founder-section .founder-header .founder-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.what-sets-us-apart .what-sets-main .venn-diagram-section .founder-section .founder-header .founder-subtitle {
+  font-size: 20px;
+  color: #666666;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+.what-sets-us-apart .what-sets-main .content-section {
+  position: relative;
+  width: 55%;
+  margin-top: 100px;
+}
+.what-sets-us-apart .what-sets-main .content-section .description-text {
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+.what-sets-us-apart .what-sets-main .content-section .description-text p {
+  color: #656565;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.what-sets-us-apart .what-sets-main .content-section .founder-portrait {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: fit-content;
+}
+.what-sets-us-apart .what-sets-main .content-section .founder-portrait .portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+  display: block;
+}
+.what-sets-us-apart .founder-section .founder-header .founder-title {
+  color: #000;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110%;
+  letter-spacing: -1.5px;
+}
+.what-sets-us-apart .founder-section .founder-header .founder-subtitle {
+  color: #D1D1D1;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110%;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.what-sets-us-apart .founder-section .founder-bio-box {
+  background: #0E2B40;
+  border-radius: 12px;
+  padding: 25px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+.what-sets-us-apart .founder-section .founder-bio-box .bio-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.what-sets-us-apart .founder-section .founder-bio-box .bio-content {
+  margin-bottom: 20px;
+  max-width: 585px;
+  position: relative;
+  z-index: 2;
+}
+.what-sets-us-apart .founder-section .founder-bio-box .bio-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+.what-sets-us-apart .founder-section .founder-bio-box .bio-button {
+  position: relative;
+  z-index: 2;
+}
+.what-sets-us-apart .founder-section .founder-bio-box .bio-button .ww-btn {
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .what-sets-us-apart {
+    padding: 80px 0;
+  }
+  .what-sets-us-apart .what-sets-main {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .what-sets-us-apart .what-sets-main .venn-diagram-section .section-title {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+  .what-sets-us-apart .what-sets-main .venn-diagram-section .venn-diagram-image {
+    max-width: 100%;
+  }
+  .what-sets-us-apart .what-sets-main .content-section .description-text {
+    margin-bottom: 30px;
+  }
+  .what-sets-us-apart .what-sets-main .content-section .description-text p {
+    font-size: 18px;
+  }
+  .what-sets-us-apart .what-sets-main .content-section .founder-portrait .portrait-image {
+    max-width: 100%;
+  }
+  .what-sets-us-apart .founder-section .founder-header {
+    margin-bottom: 30px;
+  }
+  .what-sets-us-apart .founder-section .founder-header .founder-title {
+    font-size: 28px;
+  }
+  .what-sets-us-apart .founder-section .founder-header .founder-subtitle {
+    font-size: 18px;
+  }
+  .what-sets-us-apart .founder-section .founder-bio-box {
+    padding: 30px 25px;
+  }
+  .what-sets-us-apart .founder-section .founder-bio-box .bio-content {
+    margin-bottom: 25px;
+  }
+  .what-sets-us-apart .founder-section .founder-bio-box .bio-content p {
+    font-size: 16px;
+  }
+  .what-sets-us-apart .founder-section .founder-bio-box .bio-button .ww-btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+.global-presence {
+  padding: 50px 0;
+  background: #FAFAFA;
+  position: relative;
+}
+.global-presence .global-presence-content {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+.global-presence .global-text-section {
+  flex: 1;
+}
+.global-presence .global-text-section .global-title {
+  color: #000;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+  margin-bottom: 30px;
+}
+.global-presence .global-text-section .global-title span {
+  color: #D1D1D1;
+}
+.global-presence .global-text-section .global-info-box {
+  position: relative;
+  padding-left: 86px;
+  display: flex;
+  align-items: center;
+}
+.global-presence .global-text-section .global-info-box::before {
+  content: "";
+  display: flex;
+  width: 86px;
+  height: 86px;
+  background-image: url("./images/ww-global-presence-icon.svg");
+  background-size: 47px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  left: 0;
+  background-color: #122F44;
+  border-radius: 100%;
+  padding: 30px;
+}
+.global-presence .global-text-section .global-info-box .info-box-content {
+  border-radius: 20px 4px 4px 20px;
+  background: #122F44;
+  padding: 15px 26px;
+  color: #FFFFFF;
+  max-width: 412px;
+}
+.global-presence .global-text-section .global-info-box .info-box-content p {
+  color: #FFF;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 0;
+}
+.global-presence .global-text-section .global-info-box .info-box-content p span {
+  font-weight: 500;
+}
+.global-presence .global-text-section .global-description {
+  margin-top: 30px;
+}
+.global-presence .global-text-section .global-description p {
+  font-size: 18px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+.global-presence .global-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.global-presence .global-image-section .global-presence-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .global-presence {
+    padding: 80px 0;
+  }
+  .global-presence .global-presence-content {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .global-presence .global-text-section .global-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+  .global-presence .global-text-section .global-info-box {
+    padding: 25px;
+    margin-bottom: 25px;
+  }
+  .global-presence .global-text-section .global-info-box .info-box-content {
+    margin-left: 25px;
+  }
+  .global-presence .global-text-section .global-info-box .info-box-content p {
+    font-size: 16px;
+  }
+  .global-presence .global-text-section .global-description p {
+    font-size: 16px;
+  }
+  .global-presence .global-image-section .global-presence-image {
+    max-width: 100%;
+  }
+}
