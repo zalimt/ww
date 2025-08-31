@@ -51,6 +51,143 @@ get_header(); ?>
             <?php endif; ?>
         </div>
     </section>
+    
+    <section id="wise-wolves-corporation" class="wise-wolves-corporation">
+        <div class="container">
+            <div class="corporation-content">
+                <div class="corporation-header">
+                    <div class="corporation-title-section">
+                        <h2 class="corporation-title">
+                            <?php echo esc_html(get_field('ww-corporation_title')); ?>
+                        </h2>
+                        <p class="corporation-subtitle">
+                            <?php echo esc_html(get_field('ww-corporation_subtitle')); ?>
+                        </p>
+                    </div>
+                    <div class="corporation-description">
+                        <p><?php echo esc_html(get_field('ww-corporation_description')); ?></p>
+                    </div>
+                </div>
+
+                <div class="corporation-services">
+                    <?php 
+                    $tabs = get_field('ww-corporation_tabs');
+                    if ($tabs): ?>
+                        <div class="services-grid">
+                            <?php foreach ($tabs as $tab): ?>
+                                <div class="service-item">
+                                    <?php if ($tab['ww-corporation_tab_icon']): ?>
+                                        <div class="service-icon">
+                                            <img src="<?php echo esc_url($tab['ww-corporation_tab_icon']['url']); ?>" 
+                                                 alt="<?php echo esc_attr($tab['ww-corporation_tab_icon']['alt']); ?>">
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="service-title">
+                                        <?php echo esc_html($tab['ww-corporation_tab_title']); ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="ww-stats" class="ww-stats">
+        <?php
+        $stats_background = get_field('ww_stats_background');
+        $background_style = '';
+        if ($stats_background && is_array($stats_background) && isset($stats_background['url'])) {
+            $background_style = 'style="background-image: url(' . esc_url($stats_background['url']) . ');"';
+        }
+        ?>
+        <div class="stats-background" <?php echo $background_style; ?>></div>
+        
+        <div class="container">
+            <div class="stats-content">
+                <!-- First Row - Cards 1, 2, 3 (Equal width) -->
+                <div class="stats-row stats-row-1">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_1')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_1')['card_description']); ?>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_2')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_2')['card_description']); ?>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_3')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_3')['card_description']); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row - Cards 4, 5 (2/3 and 1/3 width) -->
+                <div class="stats-row stats-row-2">
+                    <div class="stat-item stat-card-special">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_4')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_4')['card_description']); ?>
+                        </div>
+                    </div>
+
+                    <div class="stat-item stat-card-special">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_5')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_5')['card_description']); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Row - Cards 6, 7, 8 (Equal width) -->
+                <div class="stats-row stats-row-3">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_6')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_6')['card_description']); ?>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_7')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_7')['card_description']); ?>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <?php echo esc_html(get_field('ww_stats_card_8')['card_title']); ?>
+                        </div>
+                        <div class="stat-description">
+                            <?php echo esc_html(get_field('ww_stats_card_8')['card_description']); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Us Section -->
     <section id="about-us" class="wise-wolves-about">
