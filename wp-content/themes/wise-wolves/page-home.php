@@ -288,6 +288,9 @@ get_header(); ?>
             </div>
         </div>
     </section>
+    <section id="insights-news" class="insights-news">
+
+    </section>
 
     <!-- About Us Section -->
     <section id="about-us" class="wise-wolves-about">
