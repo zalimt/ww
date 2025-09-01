@@ -357,6 +357,206 @@ get_header(); ?>
             </div>
         </div>
     </section>
+    <section id="our-services" class="our-services">
+        <div class="container">
+            <div class="services-header">
+                <div class="header-title">
+                    <h2 class="services-title">
+                        <?php echo esc_html(get_field('our_services_title')); ?>
+                    </h2>
+                </div>
+                <div class="header-content">
+                    <div class="services-tooltip">
+                        <?php echo esc_html(get_field('our_services_tooltip')); ?>
+                    </div>
+                    <div class="header-description">
+                        <p><?php echo esc_html(get_field('our_services_description')); ?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="services-separator">
+                <div class="ecosystem-label"><?php echo esc_html(get_field('our_services_separator')); ?></div>
+            </div>
+
+            <!-- Investments Section -->
+            <div class="service-section investments-section">
+                <h3 class="section-title"><?php echo esc_html(get_field('investments_investments_title')); ?></h3>
+                
+                <div class="investments-content">
+                    <div class="investment-left">
+                        <h4 class="investment-card-title"><?php echo esc_html(get_field('investments_investments_left_title')); ?></h4>
+                        <div class="investment-bullets">
+                            <?php echo wp_kses(get_field('investments_investments_left_bullet_points'), array(
+                                'ul' => array(),
+                                'li' => array(),
+                                'strong' => array(),
+                                'em' => array()
+                            )); ?>
+                        </div>
+                        <?php if (get_field('investments_investments_left_btn_text') && get_field('investments_investments_left_btn_link')): ?>
+                            <a href="<?php echo esc_url(get_field('investments_investments_left_btn_link')); ?>" class="ww-btn ww-btn-blue">
+                                <?php echo esc_html(get_field('investments_investments_left_btn_text')); ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="investment-right" <?php if (get_field('investments_investments_right_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('investments_investments_right_bg')['url']); ?>')"<?php endif; ?>>
+                        <h4 class="investment-card-title"><?php echo esc_html(get_field('investments_investments_right_title')); ?></h4>
+                        <div class="investment-bullets">
+                            <?php echo wp_kses(get_field('investments_investments_right_bullets'), array(
+                                'ul' => array(),
+                                'li' => array(),
+                                'strong' => array(),
+                                'em' => array()
+                            )); ?>
+                        </div>
+                        <div class="investment-caption">
+                            <?php echo wp_kses(get_field('investments_investments_right_caption'), array(
+                                'p' => array(),
+                                'strong' => array(),
+                                'em' => array(),
+                                'br' => array()
+                            )); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Support Section -->
+            <div class="service-section business-support-section" <?php if (get_field('business_suport_business_support_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('business_suport_business_support_bg')['url']); ?>')"<?php endif; ?>>
+                <div class="business-support-content">
+                    <div class="business-support-left">
+                        <div class="business-left-wrapper">
+                            <div class="section-header">
+                                <h3 class="section-title"><?php echo esc_html(get_field('business_suport_business_support_title')); ?></h3>
+                                <div class="section-tooltip"><?php echo esc_html(get_field('business_suport_business_support_tooltip')); ?></div>
+                            </div>
+                            
+                            <div class="business-bullets">
+                                <?php echo wp_kses(get_field('business_suport_business_support_left_bullets'), array(
+                                    'ul' => array(),
+                                    'li' => array(),
+                                    'strong' => array(),
+                                    'em' => array()
+                                )); ?>
+                            </div>
+                        </div>
+                        
+                        <div class="business-buttons">
+                            <h4 class="buttons-title"><?php echo esc_html(get_field('business_suport_business_support_btns_title')); ?></h4>
+                            <div class="button-group">
+                                <?php if (get_field('business_suport_business_support_btn_1_text') && get_field('business_suport_business_support_btn_1_link')): ?>
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_1_link')); ?>" class="ww-btn ww-btn-white">
+                                        <?php echo esc_html(get_field('business_suport_business_support_btn_1_text')); ?>
+                                    </a>
+                                <?php endif; ?>
+                                
+                                <?php if (get_field('business_suport_business_support_btn_2_text') && get_field('business_suport_business_support_btn_2_link')): ?>
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_2_link')); ?>" class="ww-btn ww-btn-white">
+                                        <?php echo esc_html(get_field('business_suport_business_support_btn_2_text')); ?>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-support-right">
+                        <div class="business-description">
+                            <?php echo esc_html(get_field('business_suport_business_support_right_description')); ?>
+                        </div>
+                        <div class="business-caption">
+                            <?php echo wp_kses(get_field('business_suport_business_support_right_caption'), array(
+                                'p' => array(),
+                                'strong' => array(),
+                                'em' => array(),
+                                'br' => array()
+                            )); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Assets Section -->
+            <div class="service-section digital-assets-section">
+                <div class="digital-assets-content">
+                    <div class="digital-assets-left">
+                        <h3 class="section-title"><?php echo esc_html(get_field('digital_assets_digital_assets_title')); ?></h3>
+                        <h4 class="investment-card-title"><?php echo esc_html(get_field('digital_assets_digital_assets_description')); ?></h4>
+                        <div class="investment-bullets">
+                            <?php if (get_field('digital_assets_digital_assets_btn_text') && get_field('digital_assets_digital_assets_btn_link')): ?>
+                                <a href="<?php echo esc_url(get_field('digital_assets_digital_assets_btn_link')); ?>" class="ww-btn ww-btn-blue">
+                                    <?php echo esc_html(get_field('digital_assets_digital_assets_btn_text')); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    
+                    <div class="digital-assets-right" <?php if (get_field('digital_assets_digital_assets_right_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('digital_assets_digital_assets_right_bg')['url']); ?>')"<?php endif; ?>>
+                        <h4 class="investment-card-title"><?php echo esc_html(get_field('digital_assets_digital_assets_right_tooltip')); ?></h4>
+                        <div class="investment-bullets">
+                            <?php echo wp_kses(get_field('digital_assets_digital_assets_right_bullets'), array(
+                                'ul' => array(),
+                                'li' => array(),
+                                'strong' => array(),
+                                'em' => array()
+                            )); ?>
+                        </div>
+                        <div class="investment-caption">
+                            <?php echo wp_kses(get_field('digital_assets_digital_assets_right_caption'), array(
+                                'p' => array(),
+                                'strong' => array(),
+                                'em' => array(),
+                                'br' => array()
+                            )); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology & Infrastructure Section -->
+            <div class="service-section technology-section">
+                
+                <div class="technology-content">
+                    <div class="technology-left" <?php if (get_field('technology_and_infrastructure_technology_and_infrastructure_left_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_left_bg')['url']); ?>')"<?php endif; ?>>
+                        <div class="technology-top-banner">
+                            <?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_left_tooltip')); ?>
+                        </div>
+                        <div class="technology-caption">
+                            <?php echo wp_kses(get_field('technology_and_infrastructure_technology_and_infrastructure_left_caption'), array(
+                                'p' => array(),
+                                'strong' => array(),
+                                'em' => array(),
+                                'br' => array()
+                            )); ?>
+                        </div>
+                    </div>
+                    
+                    <div class="technology-right">
+                        <h3 class="technology-title">
+                            <span class="title-main"><?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_title')); ?></span>
+                            <span class="title-sub"><?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_subtitle')); ?></span>
+                        </h3>
+                        <div class="technology-description">
+                            <?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_description')); ?>
+                        </div>
+                        <div class="technology-buttons">
+                            <?php if (get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_text') && get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_link')): ?>
+                                <a href="<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_link')); ?>" class="ww-btn-primary">
+                                    <?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_text')); ?>
+                                </a>
+                            <?php endif; ?>
+                            
+                            <?php if (get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_text') && get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_link')): ?>
+                                <a href="<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_link')); ?>" class="ww-btn-secondary">
+                                    <?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_text')); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Us Section -->
     <section id="about-us" class="wise-wolves-about">

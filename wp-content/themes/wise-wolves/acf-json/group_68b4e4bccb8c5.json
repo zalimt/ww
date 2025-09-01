@@ -259,7 +259,7 @@
                     "label": "Investments Right Bullets",
                     "name": "investments_right_bullets",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -269,11 +269,11 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": "",
                     "allow_in_bindings": 0,
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
                 },
                 {
                     "key": "field_68b4e6b719471",
@@ -995,5 +995,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756687044
+    "modified": 1756692313
 }
