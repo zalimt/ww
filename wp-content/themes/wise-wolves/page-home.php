@@ -289,7 +289,73 @@ get_header(); ?>
         </div>
     </section>
     <section id="insights-news" class="insights-news">
+        <?php
+        $news_bg = get_field('insights_and_news_bg');
+        $background_style = '';
+        if ($news_bg && is_array($news_bg) && isset($news_bg['url'])) {
+            $background_style = 'style="background-image: url(' . esc_url($news_bg['url']) . ');"';
+        }
+        ?>
+        <div class="news-background" <?php echo $background_style; ?>></div>
+        
+        <div class="container">
+            <div class="insights-news-content">
+                <!-- Header Section -->
+                <div class="news-header">
+                    <div class="news-title-section">
+                        <h2 class="news-title">
+                            <?php echo esc_html(get_field('insights_and_news_title')); ?>
+                        </h2>
+                        <div class="newsroom-btn">Newsroom</div>
+                    </div>
+                    
+                    <div class="news-description-section">
+                        <p class="news-description">
+                            <?php echo esc_html(get_field('insights_and_news_description')); ?>
+                        </p>
+                        <div class="slider-controls">
+                            <button class="slider-arrow slider-prev" aria-label="Previous">
+                                <
+                            </button>
+                            <button class="slider-arrow slider-next" aria-label="Next">
+                                >
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- News Cards Slider -->
+                <div class="news-slider-container">
+                    <div class="news-slider">
+                        <?php 
+                        $news_cards = get_field('insights_and_news_card');
+                        if ($news_cards): ?>
+                            <?php foreach ($news_cards as $card): ?>
+                                <?php if ($card['insights_and_news_card_link']): ?>
+                                    <a href="<?php echo esc_url($card['insights_and_news_card_link']); ?>" class="news-card">
+                                        <?php if ($card['insights_and_news_card_image']): ?>
+                                            <div class="card-image">
+                                                <img src="<?php echo esc_url($card['insights_and_news_card_image']['url']); ?>" 
+                                                     alt="<?php echo esc_attr($card['insights_and_news_card_image']['alt']); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                    </a>
+                                <?php else: ?>
+                                    <div class="news-card">
+                                        <?php if ($card['insights_and_news_card_image']): ?>
+                                            <div class="card-image">
+                                                <img src="<?php echo esc_url($card['insights_and_news_card_image']['url']); ?>" 
+                                                     alt="<?php echo esc_attr($card['insights_and_news_card_image']['alt']); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Us Section -->

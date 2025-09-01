@@ -81,6 +81,15 @@ function wise_wolves_enqueue_styles() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+
+    // Enqueue news slider JavaScript
+    wp_enqueue_script(
+        'wise-wolves-news-slider',
+        get_stylesheet_directory_uri() . '/js/news-slider.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles', 5 ); // Lower priority so plugin styles can override
 
