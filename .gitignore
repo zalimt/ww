@@ -73,3 +73,6 @@ error_log
 *.old
 *.orig
 *.tmp
+
+# AI1WM backup files
+/wp-content/ai1wm-backups/
