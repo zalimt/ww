@@ -557,6 +557,221 @@ get_header(); ?>
             </div>
         </div>
     </section>
+     <section id="our-clients" class="our-clients">
+         <div class="container">
+             <div class="clients-top">
+                 <div class="clients-title-block">
+                     <h2 class="clients-title">
+                         <?php echo wp_kses(get_field('our_clients_title'), array('strong' => array(), 'em' => array(), 'b' => array(), 'i' => array(), 'span' => array(), 'br' => array())); ?>
+                     </h2>
+                     <div class="clients-tooltip"><?php echo esc_html__('Who we serve', 'wise-wolves'); ?></div>
+                 </div>
+                 <?php if ($description = get_field('our_clients_description')): ?>
+                 <div class="clients-description">
+                     <?php echo wp_kses_post($description); ?>
+                 </div>
+                 <?php endif; ?>
+             </div>
+
+             <div class="clients-hero">
+                 <?php if ($img = get_field('our_clients_image')): ?>
+                 <div class="clients-hero-image">
+                     <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                 </div>
+                 <?php endif; ?>
+
+                 <?php 
+                 $btn_text = get_field('our_clients_btn_text');
+                 $btn_link = get_field('our_clients_btn_link');
+                 if ($btn_text && $btn_link): ?>
+                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white"><?php echo esc_html($btn_text); ?></a>
+                 <?php endif; ?>
+             </div>
+
+             <div class="clients-trusted">
+                 <?php if ($trusted = get_field('our_clients_truste_by_text')): ?>
+                 <h3 class="clients-trusted-title"><?php echo esc_html($trusted); ?></h3>
+                 <?php endif; ?>
+
+                 <?php $logos = get_field('our_clients_logos'); ?>
+                 <?php if ($logos): ?>
+                 <div class="clients-logos">
+                     <?php foreach ($logos as $item): $logo = $item['our_clients_logo']; if (!$logo) { continue; } ?>
+                     <div class="clients-logo">
+                         <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
+                     </div>
+                     <?php endforeach; ?>
+                 </div>
+                 <?php endif; ?>
+             </div>
+         </div>
+     </section>
+     <section id="partnership-program" class="partnership-program">
+        <div class="container">
+            <div class="program-top">
+                <div class="program-title-block">
+                    <h2 class="program-title">
+                        <?php echo wp_kses_post(get_field('partnership_program_title')); ?>
+                    </h2>
+                    <?php if ($pp_tooltip = get_field('partnership_program_tooltip')): ?>
+                    <div class="program-tooltip"><?php echo esc_html($pp_tooltip); ?></div>
+                    <?php endif; ?>
+                </div>
+                <?php if ($pp_desc = get_field('partnership_program_description')): ?>
+                <div class="program-description">
+                    <?php echo wp_kses_post($pp_desc); ?>
+                </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="program-steps">
+                <div class="steps-track">
+                    <div class="step-item step-1 odd">
+                        <div class="step-text"><?php echo wp_kses_post(get_field('partnership_program_step_1')); ?></div>
+                    </div>
+                    <div class="step-item step-2 even">
+                        <div class="step-text"><?php echo wp_kses_post(get_field('partnership_program_step_2')); ?></div>
+                    </div>
+                    <div class="step-item step-3 odd">
+                        <div class="step-text"><?php echo wp_kses_post(get_field('partnership_program_step_3')); ?></div>
+                    </div>
+                    <div class="step-item step-4 even">
+                        <div class="step-text"><?php echo wp_kses_post(get_field('partnership_program_step_4')); ?></div>
+                    </div>
+                </div>
+            </div>
+
+            <?php 
+            $pp_btn_text = get_field('partnership_program_btn_text');
+            $pp_btn_link = get_field('partnership_program_btn_link');
+            if ($pp_btn_text && $pp_btn_link): ?>
+            <a class="ww-btn ww-btn-blue" href="<?php echo esc_url($pp_btn_link); ?>"><?php echo esc_html($pp_btn_text); ?></a>
+            <?php endif; ?>
+        </div>
+    </section>
+    <section id="career-corporate-culture" class="career-corporate-culture">
+        <div class="container">
+            <div class="career-top">
+                <div class="career-title-block">
+                    <h2 class="career-title">
+                        <?php echo wp_kses_post(get_field('career_title')); ?>
+                    </h2>
+                    <?php if ($career_tooltip = get_field('career_tooltip')): ?>
+                    <div class="career-tooltip"><?php echo esc_html($career_tooltip); ?></div>
+                    <?php endif; ?>
+                </div>
+                <?php if ($career_desc = get_field('career_description')): ?>
+                <div class="career-description">
+                    <?php echo wp_kses_post($career_desc); ?>
+                </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="career-cards">
+                <?php $card1 = get_field('career_card_1'); ?>
+                <?php if ($card1): ?>
+                <div class="career-card">
+                    <div class="card-header">
+                        <div class="card-title"><?php echo esc_html($card1['career_card_title_1'] ?? ''); ?></div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><?php echo esc_html($card1['career_card_description_1'] ?? ''); ?></p>
+                    </div>
+                    <?php 
+                    $img = $card1['career_card_image_1'] ?? null; 
+                    $img_url = '';
+                    $img_alt = '';
+                    if (is_array($img)) {
+                        $img_url = $img['url'] ?? '';
+                        $img_alt = $img['alt'] ?? '';
+                    } elseif (is_numeric($img)) {
+                        $img_url = wp_get_attachment_image_url(intval($img), 'full');
+                        $img_alt = get_post_meta(intval($img), '_wp_attachment_image_alt', true);
+                    } elseif (is_string($img)) {
+                        $img_url = $img;
+                    }
+                    ?>
+                    <?php if ($img_url): ?>
+                    <div class="card-image">
+                        <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
+                        <?php if (!empty($card1['career_card_image_btn_link_1'])): ?>
+                            <a href="<?php echo esc_url($card1['career_card_image_btn_link_1']); ?>" class="image-btn ww-btn ww-btn-white"><?php echo esc_html($card1['career_card_image_btn_text_1'] ?? ''); ?></a>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
+
+                <?php $card2 = get_field('career_card_2'); ?>
+                <?php if ($card2): ?>
+                <div class="career-card">
+                    <div class="card-header">
+                        <div class="card-title"><?php echo esc_html($card2['career_card_title_2'] ?? ''); ?></div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><?php echo esc_html($card2['career_card_description_2'] ?? ''); ?></p>
+                    </div>
+                    <?php 
+                    $img2 = $card2['career_card_image_2'] ?? null; 
+                    $img2_url = '';
+                    $img2_alt = '';
+                    if (is_array($img2)) {
+                        $img2_url = $img2['url'] ?? '';
+                        $img2_alt = $img2['alt'] ?? '';
+                    } elseif (is_numeric($img2)) {
+                        $img2_url = wp_get_attachment_image_url(intval($img2), 'full');
+                        $img2_alt = get_post_meta(intval($img2), '_wp_attachment_image_alt', true);
+                    } elseif (is_string($img2)) {
+                        $img2_url = $img2;
+                    }
+                    ?>
+                    <?php if ($img2_url): ?>
+                    <div class="card-image">
+                        <img src="<?php echo esc_url($img2_url); ?>" alt="<?php echo esc_attr($img2_alt); ?>">
+                        <?php if (!empty($card2['career_card_image_btn_link_2'])): ?>
+                            <a href="<?php echo esc_url($card2['career_card_image_btn_link_2']); ?>" class="image-btn ww-btn ww-btn-white"><?php echo esc_html($card2['career_card_image_btn_text_2'] ?? ''); ?></a>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
+
+                <?php $card3 = get_field('career_card_3'); ?>
+                <?php if ($card3): ?>
+                <div class="career-card">
+                    <div class="card-header">
+                        <div class="card-title"><?php echo esc_html($card3['career_card_title_3'] ?? ''); ?></div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><?php echo esc_html($card3['career_card_description_3'] ?? ''); ?></p>
+                    </div>
+                    <?php 
+                    $img3 = $card3['career_card_image_3'] ?? null; 
+                    $img3_url = '';
+                    $img3_alt = '';
+                    if (is_array($img3)) {
+                        $img3_url = $img3['url'] ?? '';
+                        $img3_alt = $img3['alt'] ?? '';
+                    } elseif (is_numeric($img3)) {
+                        $img3_url = wp_get_attachment_image_url(intval($img3), 'full');
+                        $img3_alt = get_post_meta(intval($img3), '_wp_attachment_image_alt', true);
+                    } elseif (is_string($img3)) {
+                        $img3_url = $img3;
+                    }
+                    ?>
+                    <?php if ($img3_url): ?>
+                    <div class="card-image">
+                        <img src="<?php echo esc_url($img3_url); ?>" alt="<?php echo esc_attr($img3_alt); ?>">
+                        <?php if (!empty($card3['career_card_image_btn_link_3'])): ?>
+                            <a href="<?php echo esc_url($card3['career_card_image_btn_link_3']); ?>" class="ww-btn ww-btn-white"><?php echo esc_html($card3['career_card_image_btn_text_3'] ?? ''); ?></a>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
     <section id="our-people" class="our-people">
         <div class="container">
             <div class="people-header">
@@ -600,6 +815,9 @@ get_header(); ?>
                 </div>
             </div>
         </div>
+    </section>
+    <section id="join-a-team" class="join-a-team">
+        
     </section>
 
 </main>

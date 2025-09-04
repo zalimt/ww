@@ -267,6 +267,183 @@ html {
     }
 }
 
+// CAREER & CORPORATE CULTURE SECTION
+.career-corporate-culture {
+    padding: 70px 0;
+
+    .career-top {
+        margin-bottom: 40px;
+    }
+
+    .career-title-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .career-title {
+            color: #000;
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 100%;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+
+            p {
+                margin-bottom: 0;
+            }
+            span { color: #D1D1D1; font-weight: 300; }
+        }
+        .career-tooltip {
+            color: #656565;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            border-radius: 2000px;
+            background: #F2F2F2;
+            display: flex;
+            width: 401px;
+            height: 32px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+    }
+
+    .career-description {
+        color: #656565;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+
+        p {
+            margin: 0;
+        }
+
+        span {
+            font-weight: 500;
+        }
+    }
+
+    .career-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .career-card {
+        border-radius: 5px;
+        background: #FFFFFF;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-top: 6px solid #0E2B40;
+        position: relative;
+        overflow: hidden;
+
+        
+
+        .card-header {
+            .card-title {
+                color: #F9F9F9;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 15px;
+                display: flex;
+                padding: 10px 13px;
+                background: #0E2B40;
+                border-radius: 5px;
+                margin-bottom: 24px;
+            }
+        }
+
+        .card-body {
+            .card-text {
+                color: #656565;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+            }
+        }
+
+        .card-image {
+            position: relative;
+            img {
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                border-radius: 10px 0 0 0;
+                margin: 20px -20px -20px auto;
+                height: 220px;
+                object-fit: cover;
+            }
+            .ww-btn {
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 160%;
+                border-radius: 5px;
+                background: #0E2B40;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+
+                &::after {
+                    background-image: url('./images/btn-arrow-white.svg');
+                    transform: scaleX(-1);
+                }
+            }
+        }
+        &:nth-child(2) {
+            border-top: 6px solid #91A5B9;
+            .card-header {
+                .card-title {
+                    background: #91A5B9;
+                }
+            }
+            .card-image {
+                .ww-btn {
+                    background: #91A5B9;
+                }
+            }
+        }
+        &:nth-child(3) {
+            border-top: 6px solid #91A5B9;
+            .card-header {
+                .card-title {
+                    background: #91A5B9;
+                }
+            }
+            .card-image {
+                .ww-btn {
+                    background: #91A5B9;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .career-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+        .career-top { flex-direction: column; gap: 20px; }
+        .career-title { font-size: 36px; }
+        .career-cards { grid-template-columns: 1fr; }
+    }
+}
+
 // FOOTER STYLES
 .wise-wolves-footer {
     position: relative;
@@ -2201,5 +2378,333 @@ html {
                 }
             }
         }
+    }
+}
+
+// OUR CLIENTS & PARTNERS SECTION
+.our-clients {
+    padding: 70px 0;
+
+    .clients-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 24px;
+    }
+
+    .clients-title-block {
+        flex: 1;
+
+        .clients-title {
+            color: #000;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 100%;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+
+            span {
+                color: #D1D1D1;
+                font-size: 50px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 100%;
+                letter-spacing: -1.5px;
+            }
+        }
+
+        .clients-tooltip {
+            color: #656565;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            border-radius: 2000px;
+            background: #F2F2F2;
+            display: flex;
+            width: 560px;
+            height: 32px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+    }
+
+    .clients-description {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        background-image: url('./images/our-clients-description-bg.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 30px 30px 80px;
+
+        span {
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .clients-hero {
+        position: relative;
+        margin-top: -70px;
+
+        .clients-hero-image {
+            
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                border-radius: 5px;
+                box-shadow: 0 3px 9px 0 rgba(214, 214, 214, 0.50);
+            }
+        }
+
+        .ww-btn {
+            max-width: 550px;
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            width: 100%;
+        }
+    }
+
+    .clients-trusted {
+        margin-top: 36px;
+
+        .clients-trusted-title {
+            color: #656565;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%;
+            margin-bottom: 16px;
+        }
+
+        .clients-logos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .clients-logo {
+            border-radius: 4px;
+            background: rgba(247, 247, 247, 0.80);
+            padding: 16px 32px;
+
+            img {
+                display: block;
+                height: 40px;
+                width: auto;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+// Responsive adjustments for Our Clients
+@media (max-width: 1024px) {
+    .our-clients {
+        .clients-top {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .clients-description {
+            max-width: 100%;
+        }
+        .clients-hero .clients-cta .ww-btn {
+            min-width: 420px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .our-clients {
+        padding: 50px 0;
+        .clients-title-block .clients-title {
+            font-size: 36px;
+        }
+        .clients-title-block .clients-tooltip { min-width: 240px; }
+        .clients-hero .clients-cta .ww-btn {
+            min-width: auto;
+            width: calc(100% - 40px);
+        }
+        .clients-trusted .clients-logos {
+            gap: 16px;
+        }
+        .clients-trusted .clients-logo img {
+            height: 32px;
+        }
+    }
+}
+
+// PARTNERSHIP PROGRAM SECTION
+.partnership-program {
+    padding: 70px 0;
+
+    .program-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 24px;
+    }
+
+    .program-title-block {
+        flex: 1;
+
+        .program-title {
+            color: #000;
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 100%;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+
+            p {
+                margin-bottom: 0;
+            }
+
+            span {
+                color: #D1D1D1;
+                font-size: 60px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 100%;
+                letter-spacing: -1.5px;
+            }
+        }
+
+        .program-tooltip {
+            color: #656565;
+            display: flex;
+            max-width: fit-content;
+            padding: 3px 40px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 2000px;
+            background: #F2F2F2;
+            flex-shrink: 0;
+        }
+    }
+
+    .program-description {
+        color: #656565;
+        text-align: right;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        max-width: 595px;
+
+        span {
+            font-weight: 500;
+        }
+    }
+
+    .program-steps {
+        margin: 50px 0 50px;
+    }
+    
+    .steps-track {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        align-items: end;
+        padding: 30px 0 30px;
+        border-left: 2px solid #EBEBEB;
+        border-right: 2px solid #EBEBEB;
+        height: 300px;
+    }
+
+    .step-item {
+        position: relative;
+        height: 110px;
+
+        .step-text {
+            p {
+                color: #656565;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 120%;
+                margin-bottom: 0;
+
+                span {
+                    display: block;
+                    margin-top: 16px;
+                }
+            }
+        }
+        &.step-2 {
+            top: -110px;
+            left: -20px;
+            width: calc(100% + 40px);
+        }
+        &.step-3 {
+            top: -32px;
+            width: calc(100% + 20px);
+            padding-left: 20px;
+        }
+        &.step-4 {
+            top: -142px;
+        }
+    }
+
+    // alternating borders and stepped elevation
+    .step-item.odd {
+        border-top: 16px solid #9FAFBF;
+
+        .step-text {
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+    }
+    .step-item.even {
+        border-bottom: 16px solid #9FAFBF;
+
+        .step-text {
+            margin-bottom: 20px;
+        }
+    }
+
+    .program-cta {
+
+    }
+
+    @media (max-width: 1024px) {
+        .steps-track { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
+        .step-1, .step-3 { margin-top: 20px; }
+        .step-2, .step-4 { margin-top: 0; }
+    }
+
+    @media (max-width: 768px) {
+        .program-top { flex-direction: column; gap: 20px; }
+        .program-description { text-align: left; }
+        .steps-track { grid-template-columns: 1fr; }
+        .step-item { margin-top: 0; }
+        .step-item.odd { border-top-width: 10px; }
+        .step-item.even { border-bottom-width: 10px; }
     }
 }

@@ -1,11 +1,11 @@
 {
-    "key": "group_68b90371a5a51",
-    "title": "Our Clients",
+    "key": "group_68b939ef87d3a",
+    "title": "Join a Team",
     "fields": [
         {
-            "key": "field_68b90371f9838",
-            "label": "Our Clients Title",
-            "name": "our_clients_title",
+            "key": "field_68b939ef57029",
+            "label": "Join a Team Title",
+            "name": "join_a_team_title",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -24,9 +24,9 @@
             "delay": 0
         },
         {
-            "key": "field_68b903a553eba",
-            "label": "Our Clients Tooltip",
-            "name": "our_clients_tooltip",
+            "key": "field_68b93a1f8b629",
+            "label": "Join a Team Description",
+            "name": "join_a_team_description",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -45,30 +45,9 @@
             "new_lines": ""
         },
         {
-            "key": "field_68b903b853ebb",
-            "label": "Our Clients Description",
-            "name": "our_clients_description",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_68b909bc4c838",
-            "label": "Our Clients BTN Text",
-            "name": "our_clients_btn_text",
+            "key": "field_68b93a308b62a",
+            "label": "Join a Team BTN Text",
+            "name": "join_a_team_btn_text",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -87,9 +66,9 @@
             "new_lines": ""
         },
         {
-            "key": "field_68b903cc53ebc",
-            "label": "Our Clients BTN Link",
-            "name": "our_clients_btn_link",
+            "key": "field_68b93a3f8b62b",
+            "label": "Join a Team BTN Link",
+            "name": "join_a_team_btn_link",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -108,9 +87,9 @@
             "new_lines": ""
         },
         {
-            "key": "field_68b903fb53ebd",
-            "label": "Our Clients Image",
-            "name": "our_clients_image",
+            "key": "field_68b93a498b62c",
+            "label": "Join a Team BG",
+            "name": "join_a_team_bg",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -134,9 +113,9 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_68b9040653ebe",
-            "label": "Our Clients Truste By Text",
-            "name": "our_clients_truste_by_text",
+            "key": "field_68b93a628b62d",
+            "label": "Join a Team Caption",
+            "name": "join_a_team_caption",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -153,57 +132,6 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_68b9042053ebf",
-            "label": "Our Clients Logos",
-            "name": "our_clients_logos",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Row",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_68b9044153ec0",
-                    "label": "Our Clients Logo",
-                    "name": "our_clients_logo",
-                    "aria-label": "",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": "",
-                    "allow_in_bindings": 0,
-                    "preview_size": "medium",
-                    "parent_repeater": "field_68b9042053ebf"
-                }
-            ]
         }
     ],
     "location": [
@@ -224,5 +152,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756959330
+    "modified": 1756969612
 }
