@@ -239,7 +239,6 @@ html {
   background: #1a1a1a;
   color: #FFFFFF;
   padding: 80px 0 40px;
-  margin-top: 80px;
 }
 .wise-wolves-footer .footer-background {
   position: absolute;
@@ -1700,6 +1699,132 @@ html {
   }
   .our-services .ww-btn {
     padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+.our-people {
+  padding: 70px 0;
+  background: #fafafa;
+}
+.our-people .people-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.our-people .people-header .people-title {
+  color: #000;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+}
+.our-people .people-header .people-slider-controls {
+  display: flex;
+  gap: 10px;
+}
+.our-people .people-header .people-slider-controls .people-slider-arrow {
+  color: #656565;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 55px;
+  height: 26px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  background: #EEE;
+}
+.our-people .people-slider-container {
+  overflow: hidden;
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.our-people .people-slider {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.3s ease;
+  padding: 10px 0;
+  width: 100%;
+}
+.our-people .people-card {
+  flex: 0 0 280px;
+  border-radius: 5px;
+  background: #FFF;
+  box-shadow: 0 0 20px 0 rgba(218, 218, 218, 0.3);
+  transition: all 0.3s ease;
+}
+.our-people .people-card .people-photo {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  padding: 20px;
+}
+.our-people .people-card .people-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 5px;
+}
+.our-people .people-card .people-info {
+  padding: 24px;
+}
+.our-people .people-card .people-info .people-name {
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+.our-people .people-card .people-info .people-title {
+  color: #656565;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1024px) {
+  .our-people .people-header .people-title {
+    font-size: 48px;
+  }
+  .our-people .people-card {
+    flex: 0 0 250px;
+  }
+}
+@media (max-width: 768px) {
+  .our-people {
+    padding: 50px 0;
+  }
+  .our-people .people-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .our-people .people-header .people-title {
+    font-size: 36px;
+  }
+  .our-people .people-card {
+    flex: 0 0 220px;
+  }
+  .our-people .people-card .people-photo {
+    height: 220px;
+  }
+  .our-people .people-card .people-info {
+    padding: 20px;
+  }
+  .our-people .people-card .people-info .people-name {
+    font-size: 18px;
+  }
+  .our-people .people-card .people-info .people-title {
     font-size: 14px;
   }
 }

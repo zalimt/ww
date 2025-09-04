@@ -557,44 +557,48 @@ get_header(); ?>
             </div>
         </div>
     </section>
-
-    <!-- About Us Section -->
-    <section id="about-us" class="wise-wolves-about">
+    <section id="our-people" class="our-people">
         <div class="container">
-            <h2>About Us</h2>
-            <!-- Add your about content here -->
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="wise-wolves-news">
-        <div class="container">
-            <h2>News</h2>
-            <!-- Add your news content here -->
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="wise-wolves-services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <!-- Add your services content here -->
-        </div>
-    </section>
-
-    <!-- Career Section -->
-    <section id="career" class="wise-wolves-career">
-        <div class="container">
-            <h2>Career</h2>
-            <!-- Add your career content here -->
-        </div>
-    </section>
-
-    <!-- Contacts Section -->
-    <section id="contacts" class="wise-wolves-contacts">
-        <div class="container">
-            <h2>Contacts</h2>
-            <!-- Add your contacts content here -->
+            <div class="people-header">
+                <h2 class="people-title">
+                    <?php echo esc_html(get_field('our_people_title')); ?>
+                </h2>
+                <div class="people-slider-controls">
+                    <button class="people-slider-arrow people-slider-prev" aria-label="Previous">
+                        <
+                    </button>
+                    <button class="people-slider-arrow people-slider-next" aria-label="Next">
+                        >
+                    </button>
+                </div>
+            </div>
+            
+            <div class="people-slider-container">
+                <div class="people-slider">
+                    <?php 
+                    $people_cards = get_field('our_people_card');
+                    if ($people_cards): ?>
+                        <?php foreach ($people_cards as $card): ?>
+                            <div class="people-card">
+                                <?php if ($card['our_people_card_photo']): ?>
+                                    <div class="people-photo">
+                                        <img src="<?php echo esc_url($card['our_people_card_photo']['url']); ?>" 
+                                             alt="<?php echo esc_attr($card['our_people_card_photo']['alt']); ?>">
+                                    </div>
+                                <?php endif; ?>
+                                <div class="people-info">
+                                    <h3 class="people-name">
+                                        <?php echo esc_html($card['our_people_card_name']); ?>
+                                    </h3>
+                                    <p class="people-title">
+                                        <?php echo esc_html($card['our_people_card_description']); ?>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -90,6 +90,15 @@ function wise_wolves_enqueue_styles() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+
+    // Enqueue people slider JavaScript
+    wp_enqueue_script(
+        'wise-wolves-people-slider',
+        get_stylesheet_directory_uri() . '/js/people-slider.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles', 5 ); // Lower priority so plugin styles can override
 

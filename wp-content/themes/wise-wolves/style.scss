@@ -273,7 +273,6 @@ html {
     background: #1a1a1a;
     color: #FFFFFF;
     padding: 80px 0 40px;
-    margin-top: 80px;
 
     .footer-background {
         position: absolute;
@@ -2047,6 +2046,160 @@ html {
         .ww-btn {
             padding: 10px 20px;
             font-size: 14px;
+        }
+    }
+}
+
+// OUR PEOPLE SECTION
+.our-people {
+    padding: 70px 0;
+    background: #fafafa;
+
+    .people-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+
+        .people-title {
+            color: #000;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 100%;
+            letter-spacing: -1.5px;
+        }
+
+        .people-slider-controls {
+            display: flex;
+            gap: 10px;
+
+            .people-slider-arrow {
+                color: #656565;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                width: 55px;
+                height: 26px;
+                padding: 10px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+                transition: all 0.3s ease;
+                background: #EEE;
+            }
+        }
+    }
+
+    .people-slider-container {
+        overflow: hidden;
+        position: relative;
+        max-width: 1240px;
+        margin: 0 auto;
+    }
+
+    .people-slider {
+        display: flex;
+        gap: 30px;
+        transition: transform 0.3s ease;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .people-card {
+        flex: 0 0 280px;
+        border-radius: 5px;
+        background: #FFF;
+        box-shadow: 0 0 20px 0 rgba(218, 218, 218, 0.30);
+        transition: all 0.3s ease;
+
+        .people-photo {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            padding: 20px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+                border-radius: 5px;
+            }
+        }
+
+        .people-info {
+            padding: 24px;
+
+            .people-name {
+                color: #000;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+            }
+
+            .people-title {
+                color: #656565;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// RESPONSIVE DESIGN
+@media (max-width: 1024px) {
+    .our-people {
+        .people-header {
+            .people-title {
+                font-size: 48px;
+            }
+        }
+
+        .people-card {
+            flex: 0 0 250px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .our-people {
+        padding: 50px 0;
+
+        .people-header {
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+
+            .people-title {
+                font-size: 36px;
+            }
+        }
+
+        .people-card {
+            flex: 0 0 220px;
+
+            .people-photo {
+                height: 220px;
+            }
+
+            .people-info {
+                padding: 20px;
+
+                .people-name {
+                    font-size: 18px;
+                }
+
+                .people-title {
+                    font-size: 14px;
+                }
+            }
         }
     }
 }
