@@ -52,7 +52,7 @@ get_header(); ?>
         </div>
     </section>
     
-    <section id="wise-wolves-corporation" class="wise-wolves-corporation">
+    <!-- <section id="wise-wolves-corporation" class="wise-wolves-corporation">
         <div class="container">
             <div class="corporation-content">
                 <div class="corporation-header">
@@ -92,8 +92,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="ww-stats" class="ww-stats">
+    </section> -->
+    <!-- <section id="ww-stats" class="ww-stats">
         <?php
         $stats_background = get_field('ww_stats_background');
         $background_style = '';
@@ -189,32 +189,35 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="what-sets-us-apart" class="what-sets-us-apart">
+    </section> -->
+    <!-- <section id="what-sets-us-apart" class="what-sets-us-apart">
         <div class="container">
             <div class="what-sets-content">
-                <!-- Main Section -->
                 <div class="what-sets-main">
-                    <!-- Left Side - Venn Diagram Image -->
-                    <div class="venn-diagram-section">
+                    <div class="content-section">
                         <h2 class="section-title">
                             <?php 
                             $title_content = get_field('what_sets_us_apart_title');
                             echo $title_content ? wp_kses($title_content, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => [], 'br' => []]) : 'What Sets Us Apart';
                             ?>
                         </h2>
-                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/what-sets-us-apart-img1.webp'); ?>" alt="What Sets Us Apart Venn Diagram" class="venn-diagram-image">
-                    </div>
-
-                    <!-- Right Side - Text and Portrait -->
-                    <div class="content-section">
                         <div class="description-text">
                             <p><?php echo esc_html(get_field('what_sets_us_apart_paragraph')); ?></p>
                         </div>
                         
                         <div class="founder-portrait">
-                            <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/what-sets-us-apart-img2.webp'); ?>" alt="Founder Portrait" class="portrait-image">
+                            <?php $img2 = get_field('what_sets_us_apart_box_image_2'); ?>
+                            <?php if ($img2 && is_array($img2) && !empty($img2['url'])): ?>
+                                <img src="<?php echo esc_url($img2['url']); ?>" alt="<?php echo esc_attr($img2['alt'] ?? ''); ?>" class="portrait-image">
+                            <?php endif; ?>
                         </div>
+                    </div>
+
+                    <div class="venn-diagram-section">
+                        <?php $img1 = get_field('what_sets_us_apart_box_image_1'); ?>
+                        <?php if ($img1 && is_array($img1) && !empty($img1['url'])): ?>
+                            <img src="<?php echo esc_url($img1['url']); ?>" alt="<?php echo esc_attr($img1['alt'] ?? ''); ?>" class="venn-diagram-image">
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="founder-section">
@@ -227,15 +230,14 @@ get_header(); ?>
                         </p>
                     </div>
                     
-                    <div class="founder-bio-box">
                         <?php
                         $box_bg = get_field('what_sets_us_apart_box_box_bg');
                         $box_bg_style = '';
                         if ($box_bg && is_array($box_bg) && isset($box_bg['url'])) {
-                            $box_bg_style = 'style="background-image: url(' . esc_url($box_bg['url']) . ');"';
+                        $box_bg_style = ' style="background-image: url(' . esc_url($box_bg['url']) . ');"';
                         }
                         ?>
-                        <div class="bio-background" <?php echo $box_bg_style; ?>></div>
+                    <div class="founder-bio-box"<?php echo $box_bg_style; ?>>
                         <div class="bio-content">
                             <p><?php echo esc_html(get_field('what_sets_us_apart_box_description')); ?></p>
                         </div>
@@ -254,13 +256,11 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Global Presence Section -->
-    <section id="global-presence" class="global-presence">
+    <!-- <section id="global-presence" class="global-presence">
         <div class="container">
             <div class="global-presence-content">
-                <!-- Left Side - Text Content -->
                 <div class="global-text-section">
                     <h2 class="global-title">
                         <?php 
@@ -283,14 +283,13 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <!-- Right Side - Globe Image -->
                 <div class="global-image-section">
                     <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/ww-global-presence.webp'); ?>" alt="Global Presence Map" class="global-presence-image">
                 </div>
             </div>
         </div>
-    </section>
-    <section id="insights-news" class="insights-news">
+    </section> -->
+    <!-- <section id="insights-news" class="insights-news">
         <?php
         $news_bg = get_field('insights_and_news_bg');
         $background_style = '';
@@ -302,7 +301,6 @@ get_header(); ?>
         
         <div class="container">
             <div class="insights-news-content">
-                <!-- Header Section -->
                 <div class="news-header">
                     <div class="news-title-section">
                         <h2 class="news-title">
@@ -326,7 +324,6 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <!-- News Cards Slider -->
                 <div class="news-slider-container">
                     <div class="news-slider">
                         <?php 
@@ -334,7 +331,7 @@ get_header(); ?>
                         if ($news_cards): ?>
                             <?php foreach ($news_cards as $card): ?>
                                 <?php if ($card['insights_and_news_card_link']): ?>
-                                    <a href="<?php echo esc_url($card['insights_and_news_card_link']); ?>" class="news-card">
+                                    <a href="<?php echo esc_url($card['insights_and_news_card_link']); ?>" class="news-card" target="_blank">
                                         <?php if ($card['insights_and_news_card_image']): ?>
                                             <div class="card-image">
                                                 <img src="<?php echo esc_url($card['insights_and_news_card_image']['url']); ?>" 
@@ -358,8 +355,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="our-services" class="our-services">
+    </section> -->
+    <!-- <section id="our-services" class="our-services">
         <div class="container">
             <div class="services-header">
                 <div class="header-title">
@@ -380,7 +377,6 @@ get_header(); ?>
                 <div class="ecosystem-label"><?php echo esc_html(get_field('our_services_separator')); ?></div>
             </div>
 
-            <!-- Investments Section -->
             <div class="service-section investments-section">
                 <h3 class="section-title"><?php echo esc_html(get_field('investments_investments_title')); ?></h3>
                 
@@ -424,7 +420,6 @@ get_header(); ?>
                 </div>
             </div>
 
-            <!-- Business Support Section -->
             <div class="service-section business-support-section" <?php if (get_field('business_suport_business_support_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('business_suport_business_support_bg')['url']); ?>')"<?php endif; ?>>
                 <div class="business-support-content">
                     <div class="business-support-left">
@@ -448,14 +443,19 @@ get_header(); ?>
                             <h4 class="buttons-title"><?php echo esc_html(get_field('business_suport_business_support_btns_title')); ?></h4>
                             <div class="button-group">
                                 <?php if (get_field('business_suport_business_support_btn_1_text') && get_field('business_suport_business_support_btn_1_link')): ?>
-                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_1_link')); ?>" class="ww-btn ww-btn-white">
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_1_link')); ?>" class="ww-btn ww-btn-white" target="_blank">
                                         <?php echo esc_html(get_field('business_suport_business_support_btn_1_text')); ?>
                                     </a>
                                 <?php endif; ?>
                                 
                                 <?php if (get_field('business_suport_business_support_btn_2_text') && get_field('business_suport_business_support_btn_2_link')): ?>
-                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_2_link')); ?>" class="ww-btn ww-btn-white">
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_2_link')); ?>" class="ww-btn ww-btn-white" target="_blank">
                                         <?php echo esc_html(get_field('business_suport_business_support_btn_2_text')); ?>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if (get_field('business_suport_business_support_btn_3_text') && get_field('business_suport_business_support_btn_3_link')): ?>
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_3_link')); ?>" class="ww-btn ww-btn-white" target="_blank">
+                                        <?php echo esc_html(get_field('business_suport_business_support_btn_3_text')); ?>
                                     </a>
                                 <?php endif; ?>
                             </div>
@@ -478,7 +478,6 @@ get_header(); ?>
                 </div>
             </div>
 
-            <!-- Digital Assets Section -->
             <div class="service-section digital-assets-section">
                 <div class="digital-assets-content">
                     <div class="digital-assets-left">
@@ -515,7 +514,6 @@ get_header(); ?>
                 </div>
             </div>
 
-            <!-- Technology & Infrastructure Section -->
             <div class="service-section technology-section">
                 
                 <div class="technology-content">
@@ -558,8 +556,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-     <section id="our-clients" class="our-clients">
+    </section> -->
+     <!-- <section id="our-clients" class="our-clients">
          <div class="container">
              <div class="clients-top">
                  <div class="clients-title-block">
@@ -607,8 +605,8 @@ get_header(); ?>
                  <?php endif; ?>
              </div>
          </div>
-     </section>
-     <section id="partnership-program" class="partnership-program">
+     </section> -->
+     <!-- <section id="partnership-program" class="partnership-program">
         <div class="container">
             <div class="program-top">
                 <div class="program-title-block">
@@ -650,8 +648,8 @@ get_header(); ?>
             <a class="ww-btn ww-btn-blue" href="<?php echo esc_url($pp_btn_link); ?>"><?php echo esc_html($pp_btn_text); ?></a>
             <?php endif; ?>
         </div>
-    </section>
-    <section id="career-corporate-culture" class="career-corporate-culture">
+    </section> -->
+    <!-- <section id="career-corporate-culture" class="career-corporate-culture">
         <div class="container">
             <div class="career-top">
                 <div class="career-title-block">
@@ -773,8 +771,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section>
-    <section id="our-people" class="our-people">
+    </section> -->
+    <!-- <section id="our-people" class="our-people">
         <div class="container">
             <div class="people-header">
                 <h2 class="people-title">
@@ -810,6 +808,11 @@ get_header(); ?>
                                     <p class="people-title">
                                         <?php echo esc_html($card['our_people_card_description']); ?>
                                     </p>
+                                    <?php if (!empty($card['our_people_card_link'])): ?>
+                                        <a class="people-linkedin" href="<?php echo esc_url($card['our_people_card_link']); ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zM7.07 20.452H3.56V9.036h3.51v11.416zM5.315 7.548a2.035 2.035 0 1 1 0-4.07 2.035 2.035 0 0 1 0 4.07zM20.452 20.452h-3.51v-5.564c0-1.328-.026-3.037-1.851-3.037-1.853 0-2.136 1.447-2.136 2.943v5.658H9.446V9.036h3.369v1.561h.047c.469-.889 1.615-1.826 3.325-1.826 3.558 0 4.212 2.343 4.212 5.389v6.292z" fill="#0A66C2"/></svg>
+                                        </a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -817,8 +820,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="join-a-team" class="join-a-team" <?php 
+    </section> -->
+    <!-- <section id="join-a-team" class="join-a-team" <?php 
         $join_bg = get_field('join_a_team_bg');
         if (is_array($join_bg) && !empty($join_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($join_bg['url']) . ');"';
@@ -845,8 +848,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section>
-    <section id="contacts" class="contacts" <?php 
+    </section> -->
+    <!-- <section id="contacts" class="contacts" <?php 
         $contacts_bg = get_field('contacts_bg');
         if (is_array($contacts_bg) && !empty($contacts_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($contacts_bg['url']) . ');"';
@@ -1014,8 +1017,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section>
+    </section> -->
 
 </main>
 
-<?php get_footer(); ?>
+<!-- <?php get_footer(); ?> -->

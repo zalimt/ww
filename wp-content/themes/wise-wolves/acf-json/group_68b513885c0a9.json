@@ -115,6 +115,28 @@
                     "placeholder": "",
                     "new_lines": "",
                     "parent_repeater": "field_68b513b13d68e"
+                },
+                {
+                    "key": "field_68bd2b354baac",
+                    "label": "Our People Card Link",
+                    "name": "our_people_card_link",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_68b513b13d68e"
                 }
             ]
         }
@@ -137,5 +159,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756697742
+    "modified": 1757227851
 }

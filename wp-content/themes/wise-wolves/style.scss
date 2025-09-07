@@ -1010,13 +1010,16 @@ html {
         
     }
 
-    // Main Section - Venn Diagram and Content
+    // Main Section - Title/Text on left, Diagram on right
     .what-sets-main {
         display: flex;
 
-        // Venn Diagram Section
-        .venn-diagram-section {
-            width: 45%;
+        // Content Section - left column
+        .content-section {
+            position: relative;
+            width: 55%;
+            margin-top: 0;
+
             .section-title {
                 color: #000;
                 font-size: 60px;
@@ -1024,55 +1027,12 @@ html {
                 font-weight: 300;
                 line-height: 100%;
                 letter-spacing: -1.5px;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
+
                 span {
                     color: #D1D1D1;
-                    font-size: 60px;
-                    font-style: normal;
-                    font-weight: 300;
-                    line-height: 100%;
-                    letter-spacing: -1.5px;
                 }
             }
-
-            .venn-diagram-image {
-                width: 100%;
-                height: auto;
-                max-width: 500px;
-                display: block;
-                margin-bottom: 20px;
-            }
-
-            // Founder Section
-            .founder-section {
-                .founder-header {
-                    text-align: center;
-                    margin-bottom: 40px;
-
-                    .founder-title {
-                        font-size: 36px;
-                        font-weight: 600;
-                        color: #000000;
-                        margin-bottom: 10px;
-                        line-height: 1.2;
-                    }
-
-                    .founder-subtitle {
-                        font-size: 20px;
-                        color: #666666;
-                        font-weight: 400;
-                        line-height: 1.4;
-                        margin: 0;
-                    }
-                }
-            }
-        }
-
-        // Content Section
-        .content-section {
-            position: relative;
-            width: 55%;
-            margin-top: 100px;
 
             .description-text {
                 margin-bottom: 40px;
@@ -1090,9 +1050,9 @@ html {
 
             .founder-portrait {
                 position: absolute;
-                top: 100px;
+                top: 190px;
                 left: 0;
-                right: 0;
+                right: 38px;
                 bottom: 0;
                 z-index: 1;
                 height: fit-content;
@@ -1106,11 +1066,27 @@ html {
                 }
             }
         }
+
+        // Venn Diagram - right column
+        .venn-diagram-section {
+            width: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 60px;
+            .venn-diagram-image {
+                width: 100%;
+                height: auto;
+                max-width: 500px;
+                display: block;
+            }
+        }
     }
 
     // Founder Section
     .founder-section {
         .founder-header {
+            margin-left: 50%;
 
             .founder-title {
                 color: #000;
@@ -1139,6 +1115,7 @@ html {
             color: #FFFFFF;
             position: relative;
             overflow: hidden;
+            background-size: cover;
 
             .bio-background {
                 position: absolute;
@@ -1156,6 +1133,7 @@ html {
                 max-width: 585px;
                 position: relative;
                 z-index: 2;
+                margin-left: 50%;
                 p {
                     font-size: 18px;
                     line-height: 1.6;
@@ -1167,6 +1145,7 @@ html {
             .bio-button {
                 position: relative;
                 z-index: 2;
+                margin-left: 50%;
                 .ww-btn {
                     max-width: 300px;
                 }
@@ -2301,6 +2280,7 @@ html {
         background: #FFF;
         box-shadow: 0 0 20px 0 rgba(218, 218, 218, 0.30);
         transition: all 0.3s ease;
+        position: relative;
 
         .people-photo {
             width: 100%;
@@ -2335,6 +2315,17 @@ html {
                 font-weight: 400;
                 line-height: 130%;
                 margin-bottom: 0;
+            }
+
+            .people-linkedin {
+                position: absolute;
+                right: 20px;
+                bottom: 10px;
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     }
