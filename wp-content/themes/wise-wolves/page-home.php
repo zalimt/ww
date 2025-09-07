@@ -816,9 +816,34 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <section id="join-a-team" class="join-a-team">
-        
-    </section>
+    <section id="join-a-team" class="join-a-team" <?php 
+        $join_bg = get_field('join_a_team_bg');
+        if (is_array($join_bg) && !empty($join_bg['url'])) {
+            echo 'style="background-image: url(' . esc_url($join_bg['url']) . ');"';
+        }
+    ?>>
+        <div class="container">
+            <div class="join-content">
+                <div class="join-left">
+                    <h2 class="join-title"><?php echo wp_kses_post(get_field('join_a_team_title')); ?></h2>
+                    <?php if ($join_desc = get_field('join_a_team_description')): ?>
+                    <div class="join-description"><?php echo esc_html($join_desc); ?></div>
+                    <?php endif; ?>
+                    <?php 
+                    $join_btn_text = get_field('join_a_team_btn_text');
+                    $join_btn_link = get_field('join_a_team_btn_link');
+                    if ($join_btn_text && $join_btn_link): ?>
+                        <a href="<?php echo esc_url($join_btn_link); ?>" class="ww-btn ww-btn-blue join-cta"><?php echo esc_html($join_btn_text); ?></a>
+                    <?php endif; ?>
+                </div>
+                <?php if ($join_caption = get_field('join_a_team_caption')): ?>
+                <div class="join-right">
+                    <div class="join-caption"><?php echo esc_html($join_caption); ?></div>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section
 
 </main>
 
