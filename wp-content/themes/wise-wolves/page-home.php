@@ -105,7 +105,6 @@ get_header(); ?>
         
         <div class="container">
             <div class="stats-content">
-                <!-- First Row - Cards 1, 2, 3 (Equal width) -->
                 <div class="stats-row stats-row-1">
                     <div class="stat-item">
                         <div class="stat-number">
@@ -135,7 +134,6 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <!-- Second Row - Cards 4, 5 (2/3 and 1/3 width) -->
                 <div class="stats-row stats-row-2">
                     <div class="stat-item stat-card-special">
                         <div class="stat-number">
@@ -146,17 +144,21 @@ get_header(); ?>
                         </div>
                     </div>
 
+                    <?php $card5 = get_field('ww_stats_card_5'); ?>
+                    <?php $card5_link = is_array($card5) ? ($card5['card_link'] ?? '') : ''; ?>
                     <div class="stat-item stat-card-special">
-                        <div class="stat-number">
-                            <?php echo esc_html(get_field('ww_stats_card_5')['card_title']); ?>
-                        </div>
-                        <div class="stat-description">
-                            <?php echo esc_html(get_field('ww_stats_card_5')['card_description']); ?>
-                        </div>
+                        <?php if (!empty($card5_link)): ?>
+                            <a href="<?php echo esc_url($card5_link); ?>" class="stat-card-link" target="_blank">
+                                <div class="stat-number"><?php echo esc_html($card5['card_title'] ?? ''); ?></div>
+                                <div class="stat-description"><?php echo esc_html($card5['card_description'] ?? ''); ?></div>
+                            </a>
+                        <?php else: ?>
+                            <div class="stat-number"><?php echo esc_html($card5['card_title'] ?? ''); ?></div>
+                            <div class="stat-description"><?php echo esc_html($card5['card_description'] ?? ''); ?></div>
+                        <?php endif; ?>
                     </div>
                 </div>
 
-                <!-- Third Row - Cards 6, 7, 8 (Equal width) -->
                 <div class="stats-row stats-row-3">
                     <div class="stat-item">
                         <div class="stat-number">
@@ -843,7 +845,176 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section
+    </section>
+    <section id="contacts" class="contacts" <?php 
+        $contacts_bg = get_field('contacts_bg');
+        if (is_array($contacts_bg) && !empty($contacts_bg['url'])) {
+            echo 'style="background-image: url(' . esc_url($contacts_bg['url']) . ');"';
+        }
+    ?>>
+        <div class="container">
+            <div class="contacts-header">
+                <h2 class="contacts-title"><?php echo esc_html(get_field('contacts_title')); ?></h2>
+                <div class="contacts-subtitle"><?php echo wp_kses_post(get_field('contacts_subtitle')); ?></div>
+            </div>
+
+            <div class="contacts-grid">
+                <?php $cy = get_field('contacts_cyprus'); ?>
+                <?php if ($cy): ?>
+                <div class="contact-card cyprus">
+                    <div class="card-top">
+                        <h3 class="card-country"><?php echo esc_html($cy['contacts_cyprus_title'] ?? ''); ?></h3>
+                        <?php if (!empty($cy['contacts_cyprus_flag']['url'])): ?>
+                            <img class="card-flag" src="<?php echo esc_url($cy['contacts_cyprus_flag']['url']); ?>" alt="">
+                        <?php endif; ?>
+                    </div>
+                    <ul class="card-list">
+                        <?php if (!empty($cy['contacts_cyprus_address_1'])): ?>
+                        <li>
+                            <?php if (!empty($cy['contacts_cyprus_address_1_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($cy['contacts_cyprus_address_1_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($cy['contacts_cyprus_address_1']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($cy['contacts_cyprus_address_2'])): ?>
+                        <li>
+                            <?php if (!empty($cy['contacts_cyprus_address_2_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($cy['contacts_cyprus_address_2_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($cy['contacts_cyprus_address_2']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($cy['contacts_cyprus_tel'])): ?>
+                        <li>
+                            <?php if (!empty($cy['contacts_cyprus_tel_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($cy['contacts_cyprus_tel_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($cy['contacts_cyprus_tel']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($cy['contacts_cyprus_email'])): ?>
+                        <li class="mt-12">
+                            <?php if (!empty($cy['contacts_cyprus_email_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($cy['contacts_cyprus_email_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($cy['contacts_cyprus_email']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($cy['contacts_cyprus_tel_2'])): ?>
+                        <li>
+                            <?php if (!empty($cy['contacts_cyprus_tel_2_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($cy['contacts_cyprus_tel_2_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($cy['contacts_cyprus_tel_2']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($cy['contacts_cyprus_email_2'])): ?>
+                        <li class="mt-12">
+                            <?php if (!empty($cy['contacts_cyprus_email_2_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($cy['contacts_cyprus_email_2_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($cy['contacts_cyprus_email_2']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+                <?php endif; ?>
+
+                <?php $uae = get_field('contacts_uae'); ?>
+                <?php if ($uae): ?>
+                <div class="contact-card uae">
+                    <div class="card-top">
+                        <h3 class="card-country"><?php echo esc_html($uae['contacts_uae_title'] ?? ''); ?></h3>
+                        <?php if (!empty($uae['contacts_uae_flag']['url'])): ?>
+                            <img class="card-flag" src="<?php echo esc_url($uae['contacts_uae_flag']['url']); ?>" alt="">
+                        <?php endif; ?>
+                    </div>
+                    <ul class="card-list">
+                        <?php if (!empty($uae['contacts_uae_address'])): ?>
+                        <li>
+                            <?php if (!empty($uae['contacts_uae_address_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($uae['contacts_uae_address_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($uae['contacts_uae_address']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($uae['contacts_uae_tel'])): ?>
+                        <li>
+                            <?php if (!empty($uae['contacts_uae_tel_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($uae['contacts_uae_tel_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($uae['contacts_uae_tel']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($uae['contacts_uae_email'])): ?>
+                        <li class="mt-12">
+                            <?php if (!empty($uae['contacts_uae_email_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($uae['contacts_uae_email_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($uae['contacts_uae_email']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($uae['contacts_uae_tel_2'])): ?>
+                        <li>
+                            <?php if (!empty($uae['contacts_uae_tel_2_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($uae['contacts_uae_tel_2_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($uae['contacts_uae_tel_2']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($uae['contacts_uae_email_2'])): ?>
+                        <li class="mt-12">
+                            <?php if (!empty($uae['contacts_uae_email_2_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($uae['contacts_uae_email_2_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($uae['contacts_uae_email_2']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+                <?php endif; ?>
+
+                <?php $ch = get_field('contacts_switzerland'); ?>
+                <?php if ($ch): ?>
+                <div class="contact-card switzerland">
+                    <div class="card-top">
+                        <h3 class="card-country"><?php echo esc_html($ch['contacts_switzerland_title'] ?? ''); ?></h3>
+                        <?php if (!empty($ch['contacts_switzerland_flag']['url'])): ?>
+                            <img class="card-flag" src="<?php echo esc_url($ch['contacts_switzerland_flag']['url']); ?>" alt="">
+                        <?php endif; ?>
+                    </div>
+                    <ul class="card-list">
+                        <?php if (!empty($ch['contacts_switzerland_address'])): ?>
+                        <li>
+                            <?php if (!empty($ch['contacts_switzerland_address_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($ch['contacts_switzerland_address_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($ch['contacts_switzerland_address']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($ch['contacts_switzerland_tel'])): ?>
+                        <li>
+                            <?php if (!empty($ch['contacts_switzerland_tel_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($ch['contacts_switzerland_tel_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($ch['contacts_switzerland_tel']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                        <?php if (!empty($ch['contacts_switzerland_email'])): ?>
+                        <li class="mt-12">
+                            <?php if (!empty($ch['contacts_switzerland_email_icon']['url'])): ?>
+                                <img src="<?php echo esc_url($ch['contacts_switzerland_email_icon']['url']); ?>" alt="">
+                            <?php endif; ?>
+                            <span><?php echo esc_html($ch['contacts_switzerland_email']); ?></span>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
 
 </main>
 
