@@ -426,11 +426,17 @@ get_header(); ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
+                    <div class="slider-controls slider-controls--mobile">
+                        <button class="slider-arrow slider-prev" aria-label="Previous"><</button>
+                        <button class="slider-arrow slider-next" aria-label="Next">></button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        
     </section>
-    <!-- <section id="our-services" class="our-services">
+    <section id="our-services" class="our-services">
         <div class="container">
             <div class="services-header">
                 <div class="header-title">
@@ -450,7 +456,6 @@ get_header(); ?>
             <div class="services-separator">
                 <div class="ecosystem-label"><?php echo esc_html(get_field('our_services_separator')); ?></div>
             </div>
-
             <div class="service-section investments-section">
                 <h3 class="section-title"><?php echo esc_html(get_field('investments_investments_title')); ?></h3>
                 
@@ -471,6 +476,11 @@ get_header(); ?>
                             </a>
                         <?php endif; ?>
                     </div>
+                    <?php if (get_field('investments_investments_left_btn_text') && get_field('investments_investments_left_btn_link')): ?>
+                            <a href="<?php echo esc_url(get_field('investments_investments_left_btn_link')); ?>" class="ww-btn ww-btn-blue mobile" target="_blank">
+                                <?php echo esc_html(get_field('investments_investments_left_btn_text')); ?>
+                            </a>
+                        <?php endif; ?>
                     
                     <div class="investment-right" <?php if (get_field('investments_investments_right_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('investments_investments_right_bg')['url']); ?>')"<?php endif; ?>>
                         <h4 class="investment-card-title"><?php echo esc_html(get_field('investments_investments_right_title')); ?></h4>
@@ -493,7 +503,6 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-
             <div class="service-section business-support-section" <?php if (get_field('business_suport_business_support_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('business_suport_business_support_bg')['url']); ?>')"<?php endif; ?>>
                 <div class="business-support-content">
                     <div class="business-support-left">
@@ -551,7 +560,6 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-
             <div class="service-section digital-assets-section">
                 <div class="digital-assets-content">
                     <div class="digital-assets-left">
@@ -587,9 +595,7 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-
             <div class="service-section technology-section">
-                
                 <div class="technology-content">
                     <div class="technology-left" <?php if (get_field('technology_and_infrastructure_technology_and_infrastructure_left_bg')): ?>style="background-image: url('<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_left_bg')['url']); ?>')"<?php endif; ?>>
                         <div class="technology-top-banner">
@@ -630,7 +636,7 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- <section id="our-clients" class="our-clients">
         <div class="container">
             <div class="clients-top">

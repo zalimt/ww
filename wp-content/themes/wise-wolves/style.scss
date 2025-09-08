@@ -1480,9 +1480,7 @@ html {
     background: #FFFFFF;
     position: relative;
 
-    .what-sets-content {
-        // Desktop content styles
-    }
+    .what-sets-content { /* desktop wrapper present for structure */ }
 
     .what-sets-main {
         display: flex;
@@ -2019,35 +2017,49 @@ html {
         .news-header {
             flex-direction: column;
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 0;
 
             .news-title-section {
+                margin: 0 auto;
                 .news-title {
                     font-size: 36px;
                     margin-bottom: 15px;
                 }
+                .newsroom-btn {
+                    max-width: 100%;
+                    width: 100%;
+                }
             }
 
             .news-description-section {
-                flex-direction: column;
-                gap: 20px;
+                max-width: 280px;
+                margin: 0 auto;
 
                 .news-description {
-                    font-size: 16px;
+                    font-size: 14px;
+                    text-align: left;
                 }
 
-                .slider-controls {
-                    align-self: flex-end;
-                }
+                .slider-controls { display: none; }
             }
         }
 
         .news-slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            margin: 0 auto;
+
             .news-slider {
-                gap: 20px;
+                gap: 0;
+                width: 300px;
+                margin: 0 auto;
 
                 .news-card {
-                    flex: 0 0 280px;
+                    flex: 0 0 300px;
+                    width: 300px;
+                    max-width: 300px;
 
                     .card-content {
                         padding: 15px;
@@ -2058,11 +2070,49 @@ html {
                     }
                 }
             }
+
+            // Mobile slider controls under the slider
+            .slider-controls--mobile {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 30px;
+
+                .slider-arrow {
+                    display: flex;
+                    width: 55px;
+                    height: 26px;
+                    padding: 10px;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    flex-shrink: 0;
+                    border-radius: 5px;
+                    background: #EEE;
+                    color: #656565;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #DDD;
+                    }
+                }
+                @media (min-width: 901px) {
+                    display: none !important;
+                }
+            }
         }
     }
 }
 
 // OUR SERVICES SECTION
+.insights-news {
+    .slider-controls--mobile { display: none; }
+}
+
+@media (min-width: 901px) {
+    .insights-news .slider-controls--mobile { display: none !important; }
+}
 .our-services {
     padding: 70px 0;
     background: #FFFFFF;
@@ -2097,6 +2147,7 @@ html {
                 line-height: 20px;
                 display: flex;
                 width: 587px;
+                max-width: 100%;
                 height: 32px;
                 padding: 10px;
                 justify-content: center;
@@ -2132,6 +2183,7 @@ html {
             font-weight: 400;
             line-height: 120%;
             position: relative;
+            overflow: hidden;
 
             &::after {
                 content: "";
@@ -2281,6 +2333,7 @@ html {
                         }
                     }
                 }
+                
 
                 .investment-caption {
                     background: #FFF;
@@ -2300,6 +2353,9 @@ html {
                         margin-bottom: 0;
                     }
                 }
+            }
+            .ww-btn.mobile {
+                display: none;
             }
         }
     }
@@ -2662,51 +2718,122 @@ html {
 }
 
 // RESPONSIVE DESIGN
-@media (max-width: 1024px) {
+
+@media (max-width: 900px) {
     .our-services {
+        padding: 40px 30px 0;
+
+        .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
         .services-header {
+            display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 20px;
 
-            .header-description {
-                max-width: none;
-            }
-        }
-
-        .investments-content,
-        .business-support-content,
-        .digital-assets-content,
-        .technology-content {
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .our-services {
-        padding: 80px 0;
-
-        .services-header {
-            .header-content {
+            .header-title {
                 .services-title {
-                    font-size: 36px;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 100%;
+                    letter-spacing: -1.5px;
+                }
+            }
+            .header-content {
+                .services-tooltip {
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                    border-radius: 0;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    height: auto;
+                    margin-right: -30px;
+                    margin-left: -30px;
+                    width: 100%;
+                    min-width: 100vw;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    margin-bottom: 30px;
+                }
+                .header-description {
+                    p {
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 150%;
+                    }
                 }
             }
         }
-
+        .services-separator {
+            margin-bottom: 40px;
+            .ecosystem-label {
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%;
+                &::after {
+                    left: 200px;
+                }
+            }
+        }
         .service-section {
-            .section-header {
-                .section-title {
-                    font-size: 28px;
+            .section-title {
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 100%;
+                max-width: 300px;
+                margin: 0 auto 20px;
+            }
+            .investments-content {
+                display: flex;
+                flex-direction: column;
+
+                .investment-left,
+                .investment-right {
+                    margin: 0 auto;
+                }
+                .investment-left {
+                    padding: 20px;
+                    max-width: 400px;
+                    width: 100%;
+
+                }
+                .investment-right {
+                    border-radius: 0;
+                    @media (max-width: 600px) {
+                        min-width: 100vw;
+                        margin-left: -30px;
+                    }
+                    .investment-card-title {
+                        font-size: 16px;
+                    }
+                    .investment-bullets {
+                        ul {
+                            padding-bottom: 40px;
+                            li {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                .ww-btn {
+                    display: none;
+                }
+                .ww-btn.mobile {
+                    display: flex;
+                    max-width: 100%;
+                    width: 100%;
                 }
             }
         }
 
-        .ww-btn {
-            padding: 10px 20px;
-            font-size: 14px;
-        }
     }
 }
 
@@ -3184,9 +3311,7 @@ html {
         }
     }
 
-    .program-cta {
-        // Program CTA styles
-    }
+    .program-cta { /* reserved for CTA layout overrides if needed */ }
 
     @media (max-width: 1024px) {
         .steps-track { grid-template-columns: repeat(2, 1fr); row-gap: 20px; }
@@ -3487,11 +3612,7 @@ background: linear-gradient(240deg, #B6C7DB -29.02%, #0E2B40 145.48%), #FFF;
             }
 
             
-            .mobile-portrait-container {
-                
-                .mobile-portrait-image {
-   
-                }
+            .mobile-portrait-container { /* container for name tag overlay */
                 
                 .mobile-name-tag {
                     position: absolute;
