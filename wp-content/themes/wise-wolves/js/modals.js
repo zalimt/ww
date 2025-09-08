@@ -1,41 +1,67 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const modal = document.getElementById('ww-modal');
-  if (!modal) return;
-
-  const openBySelector = (selector) => {
-    const triggers = document.querySelectorAll(selector);
-    triggers.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        // Only hijack if it's an anchor to #contact-us or has data attr
-        const href = btn.getAttribute('href') || '';
-        const targetModal = btn.getAttribute('data-ww-modal') || '';
-        if (href.startsWith('#contact-us') || targetModal === 'contact') {
-          e.preventDefault();
-          modal.classList.add('open');
-          document.documentElement.style.overflow = 'hidden';
-        }
-      });
-    });
+  // Modal configuration
+  const modals = {
+    contact: {
+      id: 'ww-modal-contact',
+      triggers: ['a[href^="#contact-us"]', '[data-ww-modal="contact"]']
+    },
+    join: {
+      id: 'ww-modal-join',
+      triggers: ['a[href^="#join-a-team"]', '[data-ww-modal="join"]']
+    },
+    partner: {
+      id: 'ww-modal-partner',
+      triggers: ['a[href^="#partnership-program"]', '[data-ww-modal="partner"]']
+    }
   };
 
-  // Hero button and any element with data-ww-modal="contact"
-  openBySelector('a[href^="#contact-us"], [data-ww-modal="contact"]');
+  // Function to open a specific modal
+  const openModal = (modalId) => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
+    }
+  };
 
-  const closeEls = modal.querySelectorAll('[data-ww-modal-close]');
-  closeEls.forEach((el) => {
-    el.addEventListener('click', () => {
-      modal.classList.remove('open');
-      document.documentElement.style.overflow = '';
+  // Function to close all modals
+  const closeAllModals = () => {
+    Object.values(modals).forEach(modal => {
+      const modalEl = document.getElementById(modal.id);
+      if (modalEl) {
+        modalEl.classList.remove('open');
+      }
+    });
+    document.documentElement.style.overflow = '';
+  };
+
+  // Set up triggers for each modal
+  Object.entries(modals).forEach(([modalName, config]) => {
+    config.triggers.forEach(selector => {
+      const triggers = document.querySelectorAll(selector);
+      triggers.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(config.id);
+        });
+      });
     });
   });
 
-  // ESC to close
+  // Close modals when clicking close buttons or backdrop
+  document.addEventListener('click', (e) => {
+    if (e.target.hasAttribute('data-ww-modal-close')) {
+      closeAllModals();
+    }
+  });
+
+  // ESC to close all modals
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      modal.classList.remove('open');
-      document.documentElement.style.overflow = '';
+      closeAllModals();
     }
   });
 });
+
 
 

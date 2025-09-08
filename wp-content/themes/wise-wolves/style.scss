@@ -748,6 +748,12 @@ html {
         margin: 60px auto;
         padding: 0;
         z-index: 1;
+
+        &[aria-label="Partner Modal"] {
+            textarea {
+                height: 100px !important;
+            }
+        }
     }
 
     .ww-modal-body {
@@ -755,6 +761,7 @@ html {
         max-width: 900px;
         padding: 40px 30px;
         border-radius: 5px;
+        margin: 0 auto;
     }
 
     .ww-modal-close {
@@ -898,6 +905,14 @@ html {
     font-weight: 700;
     text-align: center;
     font-size: 14px;
+    margin: 0;
+}
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output, .wpcf7 form.payment-required .wpcf7-response-output {
+    border: none;
+    color: #dc2626;
+    font-weight: 500;
+    line-height: 130%;
+    text-align: center;
     margin: 0;
 }
 

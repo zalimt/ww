@@ -38,7 +38,7 @@
                             <p>Reach out to our team for consultations, partnerships, or inquiries</p>
                         </div>
                         <div class="footer-cta-button">
-                            <a href="#contacts" class="ww-btn ww-btn-white">
+                            <a href="#contact-us" data-ww-modal="contact" class="ww-btn ww-btn-white">
                                 Contact us
                             </a>
                         </div>
@@ -61,10 +61,10 @@
 
 <?php wp_footer(); ?>
 
-<!-- Reusable Modal Root -->
-<div class="ww-modal" id="ww-modal" aria-hidden="true">
+<!-- Contact Modal -->
+<div class="ww-modal" id="ww-modal-contact" aria-hidden="true">
     <div class="ww-modal-backdrop" data-ww-modal-close></div>
-    <div class="ww-modal-dialog" role="dialog" aria-modal="true" aria-label="Modal">
+    <div class="ww-modal-dialog" role="dialog" aria-modal="true" aria-label="Contact Modal">
         <button class="ww-modal-close" type="button" aria-label="Close" data-ww-modal-close>×</button>
         <div class="ww-modal-body">
             <div class="ww-contact-card">
@@ -73,7 +73,7 @@
                     <?php echo do_shortcode('[contact-form-7 id="83879d9" title="Let\'s Talk"]'); ?>
                 </div>
                 <div class="ww-contact-right">
-                    <div class="ww-contact-copy">We’re here to answer your questions, discuss opportunities, and explore how Wise Wolves Corporation can support your vision</div>
+                    <div class="ww-contact-copy">We're here to answer your questions, discuss opportunities, and explore how Wise Wolves Corporation can support your vision</div>
                     <div class="ww-contact-image">
                         <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/form-lets-talk-bg.webp'); ?>" alt="Let's Talk">
                     </div>
@@ -81,7 +81,49 @@
             </div>
         </div>
     </div>
-    
+</div>
+
+<!-- Apply to Join Modal -->
+<div class="ww-modal" id="ww-modal-join" aria-hidden="true">
+    <div class="ww-modal-backdrop" data-ww-modal-close></div>
+    <div class="ww-modal-dialog" role="dialog" aria-modal="true" aria-label="Join Team Modal">
+        <button class="ww-modal-close" type="button" aria-label="Close" data-ww-modal-close>×</button>
+        <div class="ww-modal-body">
+            <div class="ww-contact-card">
+                <div class="ww-contact-left">
+                    <div class="ww-contact-title">Apply to join Wise Wolves</div>
+                    <?php echo do_shortcode('[contact-form-7 id="7eefb6b" title="Apply to join Wise Wolves"]'); ?>
+                </div>
+                <div class="ww-contact-right">
+                    <div class="ww-contact-image">
+                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/form-apply-to-join-bg.webp'); ?>" alt="Join Team">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Become a Partner Modal -->
+<div class="ww-modal" id="ww-modal-partner" aria-hidden="true">
+    <div class="ww-modal-backdrop" data-ww-modal-close></div>
+    <div class="ww-modal-dialog" role="dialog" aria-modal="true" aria-label="Partner Modal">
+        <button class="ww-modal-close" type="button" aria-label="Close" data-ww-modal-close>×</button>
+        <div class="ww-modal-body">
+            <div class="ww-contact-card">
+                <div class="ww-contact-left">
+                    <div class="ww-contact-title">Become a Partner</div>
+                    <?php echo do_shortcode('[contact-form-7 id="9f2ae30" title="Become a Partner"]'); ?>
+                </div>
+                <div class="ww-contact-right">
+                    <div class="ww-contact-copy">Tell us about your business and referral model. We’ll reach out to onboard you into the Wise Wolves Partnership Program and align on rewards</div>
+                    <div class="ww-contact-image">
+                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/form-become-a-partner-bg.webp'); ?>" alt="Become a Partner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

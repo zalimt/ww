@@ -582,9 +582,8 @@ get_header(); ?>
 
                  <?php 
                  $btn_text = get_field('our_clients_btn_text');
-                 $btn_link = get_field('our_clients_btn_link');
-                 if ($btn_text && $btn_link): ?>
-                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white"><?php echo esc_html($btn_text); ?></a>
+                 if ($btn_text): ?>
+                <a href="#contact-us" data-ww-modal="contact" class="ww-btn ww-btn-white"><?php echo esc_html($btn_text); ?></a>
                  <?php endif; ?>
              </div>
 
@@ -643,9 +642,8 @@ get_header(); ?>
 
             <?php 
             $pp_btn_text = get_field('partnership_program_btn_text');
-            $pp_btn_link = get_field('partnership_program_btn_link');
-            if ($pp_btn_text && $pp_btn_link): ?>
-            <a class="ww-btn ww-btn-blue" href="<?php echo esc_url($pp_btn_link); ?>"><?php echo esc_html($pp_btn_text); ?></a>
+            if ($pp_btn_text): ?>
+            <a class="ww-btn ww-btn-blue" href="#partnership-program" data-ww-modal="partner"><?php echo esc_html($pp_btn_text); ?></a>
             <?php endif; ?>
         </div>
     </section>
@@ -836,9 +834,8 @@ get_header(); ?>
                     <?php endif; ?>
                     <?php 
                     $join_btn_text = get_field('join_a_team_btn_text');
-                    $join_btn_link = get_field('join_a_team_btn_link');
-                    if ($join_btn_text && $join_btn_link): ?>
-                        <a href="<?php echo esc_url($join_btn_link); ?>" class="ww-btn ww-btn-blue join-cta"><?php echo esc_html($join_btn_text); ?></a>
+                    if ($join_btn_text): ?>
+                        <a href="#join-a-team" data-ww-modal="join" class="ww-btn ww-btn-blue join-cta"><?php echo esc_html($join_btn_text); ?></a>
                     <?php endif; ?>
                 </div>
                 <?php if ($join_caption = get_field('join_a_team_caption')): ?>
