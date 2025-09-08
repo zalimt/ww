@@ -20,8 +20,6 @@ if ($hero_background) {
 get_header(); ?>
 
 <main class="wise-wolves-home">
-    
-    <!-- Hero Section -->
     <section id="hero" class="wise-wolves-hero" <?php echo $background_style; ?>>
         <div class="container">
             <div class="title-wrapper">
@@ -51,7 +49,6 @@ get_header(); ?>
             <?php endif; ?>
         </div>
     </section>
-    
     <section id="wise-wolves-corporation" class="wise-wolves-corporation">
         <div class="container">
             <div class="corporation-content">
@@ -150,8 +147,8 @@ get_header(); ?>
                         <?php if (!empty($card5_link)): ?>
                             <a href="<?php echo esc_url($card5_link); ?>" class="stat-card-link" target="_blank">
                                 <div class="stat-number"><?php echo esc_html($card5['card_title'] ?? ''); ?></div>
-                                <div class="stat-description"><?php echo esc_html($card5['card_description'] ?? ''); ?></div>
                             </a>
+                            <div class="stat-description"><?php echo esc_html($card5['card_description'] ?? ''); ?></div>
                         <?php else: ?>
                             <div class="stat-number"><?php echo esc_html($card5['card_title'] ?? ''); ?></div>
                             <div class="stat-description"><?php echo esc_html($card5['card_description'] ?? ''); ?></div>
@@ -247,6 +244,83 @@ get_header(); ?>
                         $btn_link = get_field('what_sets_us_apart_box_btn_link');
                         if ($btn_text && $btn_link): ?>
                             <div class="bio-button">
+                                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white" target="_blank">
+                                    <?php echo esc_html($btn_text); ?>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile version of What sets us apart section -->
+    <section id="what-sets-us-apart-mobile" class="what-sets-us-apart-mobile">
+        <div class="container">
+            <div class="what-sets-mobile-content">
+                <!-- Top Section: Title and Venn Diagram -->
+                <div class="mobile-top-section">
+                    <h2 class="mobile-section-title">
+                        <?php 
+                        $title_content = get_field('what_sets_us_apart_title');
+                        echo $title_content ? wp_kses($title_content, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => [], 'br' => []]) : 'What Sets Us Apart';
+                        ?>
+                    </h2>
+                    
+                    <div class="mobile-venn-diagram">
+                        <?php $img1 = get_field('what_sets_us_apart_box_image_1'); ?>
+                        <?php if ($img1 && is_array($img1) && !empty($img1['url'])): ?>
+                            <img src="<?php echo esc_url($img1['url']); ?>" alt="<?php echo esc_attr($img1['alt'] ?? ''); ?>" class="mobile-venn-image">
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="mobile-description">
+                        <p><?php echo esc_html(get_field('what_sets_us_apart_paragraph')); ?></p>
+                    </div>
+                </div>
+
+                <!-- Middle Section: Portrait with Background -->
+                <div class="mobile-portrait-section">
+                    <div class="mobile-portrait-container">
+                        <?php $img2 = get_field('what_sets_us_apart_box_image_2'); ?>
+                        <?php if ($img2 && is_array($img2) && !empty($img2['url'])): ?>
+                            <img src="<?php echo esc_url($img2['url']); ?>" alt="<?php echo esc_attr($img2['alt'] ?? ''); ?>" class="mobile-portrait-image">
+                        <?php endif; ?>
+                        <div class="mobile-name-tag">
+                            <span>Sergey Stopnevich</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section: Founder Bio -->
+                <div class="mobile-founder-section">
+                    <div class="mobile-founder-header">
+                        <h3 class="mobile-founder-title">
+                            <?php echo esc_html(get_field('what_sets_us_apart_founder_title')); ?>
+                        </h3>
+                        <p class="mobile-founder-subtitle">
+                            <?php echo esc_html(get_field('what_sets_us_apart_founder_subitle')); ?>
+                        </p>
+                    </div>
+                    
+                    <?php
+                    $mobile_bio_bg = get_field('what_sets_us_apart_box_box_bg');
+                    $mobile_bio_bg_style = '';
+                    if ($mobile_bio_bg && is_array($mobile_bio_bg) && isset($mobile_bio_bg['url'])) {
+                        $mobile_bio_bg_style = ' style="background-image: url(' . esc_url($mobile_bio_bg['url']) . ');"';
+                    }
+                    ?>
+                    <div class="mobile-bio-box"<?php echo $mobile_bio_bg_style; ?>>
+                        <div class="mobile-bio-content">
+                            <p><?php echo esc_html(get_field('what_sets_us_apart_box_description')); ?></p>
+                        </div>
+                        
+                        <?php 
+                        $btn_text = get_field('what_sets_us_apart_box_btn_text');
+                        $btn_link = get_field('what_sets_us_apart_box_btn_link');
+                        if ($btn_text && $btn_link): ?>
+                            <div class="mobile-bio-button">
                                 <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white" target="_blank">
                                     <?php echo esc_html($btn_text); ?>
                                 </a>
@@ -356,7 +430,7 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <section id="our-services" class="our-services">
+    <!-- <section id="our-services" class="our-services">
         <div class="container">
             <div class="services-header">
                 <div class="header-title">
@@ -556,56 +630,56 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-     <section id="our-clients" class="our-clients">
-         <div class="container">
-             <div class="clients-top">
-                 <div class="clients-title-block">
-                     <h2 class="clients-title">
-                         <?php echo wp_kses(get_field('our_clients_title'), array('strong' => array(), 'em' => array(), 'b' => array(), 'i' => array(), 'span' => array(), 'br' => array())); ?>
-                     </h2>
-                     <div class="clients-tooltip"><?php echo esc_html__('Who we serve', 'wise-wolves'); ?></div>
-                 </div>
-                 <?php if ($description = get_field('our_clients_description')): ?>
-                 <div class="clients-description">
-                     <?php echo wp_kses_post($description); ?>
-                 </div>
-                 <?php endif; ?>
-             </div>
+    </section> -->
+    <!-- <section id="our-clients" class="our-clients">
+        <div class="container">
+            <div class="clients-top">
+                <div class="clients-title-block">
+                    <h2 class="clients-title">
+                        <?php echo wp_kses(get_field('our_clients_title'), array('strong' => array(), 'em' => array(), 'b' => array(), 'i' => array(), 'span' => array(), 'br' => array())); ?>
+                    </h2>
+                    <div class="clients-tooltip"><?php echo esc_html__('Who we serve', 'wise-wolves'); ?></div>
+                </div>
+                <?php if ($description = get_field('our_clients_description')): ?>
+                <div class="clients-description">
+                    <?php echo wp_kses_post($description); ?>
+                </div>
+                <?php endif; ?>
+            </div>
 
-             <div class="clients-hero">
-                 <?php if ($img = get_field('our_clients_image')): ?>
-                 <div class="clients-hero-image">
-                     <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
-                 </div>
-                 <?php endif; ?>
+            <div class="clients-hero">
+                <?php if ($img = get_field('our_clients_image')): ?>
+                <div class="clients-hero-image">
+                    <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                </div>
+                <?php endif; ?>
 
-                 <?php 
-                 $btn_text = get_field('our_clients_btn_text');
-                 if ($btn_text): ?>
-                <a href="#contact-us" data-ww-modal="contact" class="ww-btn ww-btn-white"><?php echo esc_html($btn_text); ?></a>
-                 <?php endif; ?>
-             </div>
+                <?php 
+                $btn_text = get_field('our_clients_btn_text');
+                if ($btn_text): ?>
+            <a href="#contact-us" data-ww-modal="contact" class="ww-btn ww-btn-white"><?php echo esc_html($btn_text); ?></a>
+                <?php endif; ?>
+            </div>
 
-             <div class="clients-trusted">
-                 <?php if ($trusted = get_field('our_clients_truste_by_text')): ?>
-                 <h3 class="clients-trusted-title"><?php echo esc_html($trusted); ?></h3>
-                 <?php endif; ?>
+            <div class="clients-trusted">
+                <?php if ($trusted = get_field('our_clients_truste_by_text')): ?>
+                <h3 class="clients-trusted-title"><?php echo esc_html($trusted); ?></h3>
+                <?php endif; ?>
 
-                 <?php $logos = get_field('our_clients_logos'); ?>
-                 <?php if ($logos): ?>
-                 <div class="clients-logos">
-                     <?php foreach ($logos as $item): $logo = $item['our_clients_logo']; if (!$logo) { continue; } ?>
-                     <div class="clients-logo">
-                         <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
-                     </div>
-                     <?php endforeach; ?>
-                 </div>
-                 <?php endif; ?>
-             </div>
-         </div>
-     </section>
-     <section id="partnership-program" class="partnership-program">
+                <?php $logos = get_field('our_clients_logos'); ?>
+                <?php if ($logos): ?>
+                <div class="clients-logos">
+                    <?php foreach ($logos as $item): $logo = $item['our_clients_logo']; if (!$logo) { continue; } ?>
+                    <div class="clients-logo">
+                        <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section> -->
+    <!-- <section id="partnership-program" class="partnership-program">
         <div class="container">
             <div class="program-top">
                 <div class="program-title-block">
@@ -646,8 +720,8 @@ get_header(); ?>
             <a class="ww-btn ww-btn-blue" href="#partnership-program" data-ww-modal="partner"><?php echo esc_html($pp_btn_text); ?></a>
             <?php endif; ?>
         </div>
-    </section>
-    <section id="career-corporate-culture" class="career-corporate-culture">
+    </section> -->
+    <!-- <section id="career-corporate-culture" class="career-corporate-culture">
         <div class="container">
             <div class="career-top">
                 <div class="career-title-block">
@@ -769,8 +843,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section>
-    <section id="our-people" class="our-people">
+    </section> -->
+    <!-- <section id="our-people" class="our-people">
         <div class="container">
             <div class="people-header">
                 <h2 class="people-title">
@@ -818,8 +892,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="join-a-team" class="join-a-team" <?php 
+    </section> -->
+    <!-- <section id="join-a-team" class="join-a-team" <?php 
         $join_bg = get_field('join_a_team_bg');
         if (is_array($join_bg) && !empty($join_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($join_bg['url']) . ');"';
@@ -845,8 +919,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section>
-    <section id="contacts" class="contacts" <?php 
+    </section> -->
+    <!-- <section id="contacts" class="contacts" <?php 
         $contacts_bg = get_field('contacts_bg');
         if (is_array($contacts_bg) && !empty($contacts_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($contacts_bg['url']) . ');"';
@@ -1014,9 +1088,7 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section>
-    
-
+    </section> -->
 </main>
-
 <?php get_footer(); ?>
+
