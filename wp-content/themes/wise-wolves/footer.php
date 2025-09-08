@@ -46,9 +46,8 @@
                         <!-- Legal Links Section -->
                         <div class="footer-legal">
                             <div class="legal-links">
-                                <a href="/terms-and-conditions">Terms and Conditions</a>
-                                <a href="/privacy-policy">Privacy Policy</a>
-                                <a href="/cookie-policy">Cookie Policy</a>
+                                <a href="/wp-content/themes/wise-wolves/legal/WWCorp-Terms.pdf" target="_blank">Terms and Conditions</a>
+                                <a href="/wp-content/themes/wise-wolves/legal/WWCorp-Privacy-Policy.pdf" target="_blank">Privacy Policy</a>
                             </div>
                         </div>
                     </div>
@@ -61,6 +60,29 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<!-- Reusable Modal Root -->
+<div class="ww-modal" id="ww-modal" aria-hidden="true">
+    <div class="ww-modal-backdrop" data-ww-modal-close></div>
+    <div class="ww-modal-dialog" role="dialog" aria-modal="true" aria-label="Modal">
+        <button class="ww-modal-close" type="button" aria-label="Close" data-ww-modal-close>×</button>
+        <div class="ww-modal-body">
+            <div class="ww-contact-card">
+                <div class="ww-contact-left">
+                    <div class="ww-contact-title">Let's talk about your goals</div>
+                    <?php echo do_shortcode('[contact-form-7 id="83879d9" title="Let\'s Talk"]'); ?>
+                </div>
+                <div class="ww-contact-right">
+                    <div class="ww-contact-copy">We’re here to answer your questions, discuss opportunities, and explore how Wise Wolves Corporation can support your vision</div>
+                    <div class="ww-contact-image">
+                        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/form-lets-talk-bg.webp'); ?>" alt="Let's Talk">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
 
 </body>
 </html>

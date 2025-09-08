@@ -52,7 +52,7 @@ get_header(); ?>
         </div>
     </section>
     
-    <!-- <section id="wise-wolves-corporation" class="wise-wolves-corporation">
+    <section id="wise-wolves-corporation" class="wise-wolves-corporation">
         <div class="container">
             <div class="corporation-content">
                 <div class="corporation-header">
@@ -92,8 +92,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="ww-stats" class="ww-stats">
+    </section>
+    <section id="ww-stats" class="ww-stats">
         <?php
         $stats_background = get_field('ww_stats_background');
         $background_style = '';
@@ -189,8 +189,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="what-sets-us-apart" class="what-sets-us-apart">
+    </section>
+    <section id="what-sets-us-apart" class="what-sets-us-apart">
         <div class="container">
             <div class="what-sets-content">
                 <div class="what-sets-main">
@@ -247,7 +247,7 @@ get_header(); ?>
                         $btn_link = get_field('what_sets_us_apart_box_btn_link');
                         if ($btn_text && $btn_link): ?>
                             <div class="bio-button">
-                                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white">
+                                <a href="<?php echo esc_url($btn_link); ?>" class="ww-btn ww-btn-white" target="_blank">
                                     <?php echo esc_html($btn_text); ?>
                                 </a>
                             </div>
@@ -256,9 +256,9 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
-    <!-- <section id="global-presence" class="global-presence">
+    <section id="global-presence" class="global-presence">
         <div class="container">
             <div class="global-presence-content">
                 <div class="global-text-section">
@@ -288,8 +288,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="insights-news" class="insights-news">
+    </section>
+    <section id="insights-news" class="insights-news">
         <?php
         $news_bg = get_field('insights_and_news_bg');
         $background_style = '';
@@ -355,8 +355,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="our-services" class="our-services">
+    </section>
+    <section id="our-services" class="our-services">
         <div class="container">
             <div class="services-header">
                 <div class="header-title">
@@ -392,7 +392,7 @@ get_header(); ?>
                             )); ?>
                         </div>
                         <?php if (get_field('investments_investments_left_btn_text') && get_field('investments_investments_left_btn_link')): ?>
-                            <a href="<?php echo esc_url(get_field('investments_investments_left_btn_link')); ?>" class="ww-btn ww-btn-blue">
+                            <a href="<?php echo esc_url(get_field('investments_investments_left_btn_link')); ?>" class="ww-btn ww-btn-blue" target="_blank">
                                 <?php echo esc_html(get_field('investments_investments_left_btn_text')); ?>
                             </a>
                         <?php endif; ?>
@@ -485,7 +485,7 @@ get_header(); ?>
                         <h4 class="investment-card-title"><?php echo esc_html(get_field('digital_assets_digital_assets_description')); ?></h4>
                         <div class="investment-bullets">
                             <?php if (get_field('digital_assets_digital_assets_btn_text') && get_field('digital_assets_digital_assets_btn_link')): ?>
-                                <a href="<?php echo esc_url(get_field('digital_assets_digital_assets_btn_link')); ?>" class="ww-btn ww-btn-blue">
+                                <a href="<?php echo esc_url(get_field('digital_assets_digital_assets_btn_link')); ?>" class="ww-btn ww-btn-blue" target="_blank">
                                     <?php echo esc_html(get_field('digital_assets_digital_assets_btn_text')); ?>
                                 </a>
                             <?php endif; ?>
@@ -541,13 +541,13 @@ get_header(); ?>
                         </div>
                         <div class="technology-buttons">
                             <?php if (get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_text') && get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_link')): ?>
-                                <a href="<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_link')); ?>" class="ww-btn-primary">
+                                <a href="<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_link')); ?>" class="ww-btn-primary" target="_blank">
                                     <?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_1_text')); ?>
                                 </a>
                             <?php endif; ?>
                             
                             <?php if (get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_text') && get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_link')): ?>
-                                <a href="<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_link')); ?>" class="ww-btn-secondary">
+                                <a href="<?php echo esc_url(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_link')); ?>" class="ww-btn-secondary" target="_blank">
                                     <?php echo esc_html(get_field('technology_and_infrastructure_technology_and_infrastructure_btn_2_text')); ?>
                                 </a>
                             <?php endif; ?>
@@ -556,8 +556,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
-     <!-- <section id="our-clients" class="our-clients">
+    </section>
+     <section id="our-clients" class="our-clients">
          <div class="container">
              <div class="clients-top">
                  <div class="clients-title-block">
@@ -605,8 +605,8 @@ get_header(); ?>
                  <?php endif; ?>
              </div>
          </div>
-     </section> -->
-     <!-- <section id="partnership-program" class="partnership-program">
+     </section>
+     <section id="partnership-program" class="partnership-program">
         <div class="container">
             <div class="program-top">
                 <div class="program-title-block">
@@ -648,8 +648,8 @@ get_header(); ?>
             <a class="ww-btn ww-btn-blue" href="<?php echo esc_url($pp_btn_link); ?>"><?php echo esc_html($pp_btn_text); ?></a>
             <?php endif; ?>
         </div>
-    </section> -->
-    <!-- <section id="career-corporate-culture" class="career-corporate-culture">
+    </section>
+    <section id="career-corporate-culture" class="career-corporate-culture">
         <div class="container">
             <div class="career-top">
                 <div class="career-title-block">
@@ -729,7 +729,7 @@ get_header(); ?>
                     <div class="card-image">
                         <img src="<?php echo esc_url($img2_url); ?>" alt="<?php echo esc_attr($img2_alt); ?>">
                         <?php if (!empty($card2['career_card_image_btn_link_2'])): ?>
-                            <a href="<?php echo esc_url($card2['career_card_image_btn_link_2']); ?>" class="image-btn ww-btn ww-btn-white"><?php echo esc_html($card2['career_card_image_btn_text_2'] ?? ''); ?></a>
+                            <a href="<?php echo esc_url($card2['career_card_image_btn_link_2']); ?>" class="image-btn ww-btn ww-btn-white" target="_blank"><?php echo esc_html($card2['career_card_image_btn_text_2'] ?? ''); ?></a>
                         <?php endif; ?>
                     </div>
                     <?php endif; ?>
@@ -771,8 +771,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="our-people" class="our-people">
+    </section>
+    <section id="our-people" class="our-people">
         <div class="container">
             <div class="people-header">
                 <h2 class="people-title">
@@ -820,8 +820,8 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="join-a-team" class="join-a-team" <?php 
+    </section>
+    <section id="join-a-team" class="join-a-team" <?php 
         $join_bg = get_field('join_a_team_bg');
         if (is_array($join_bg) && !empty($join_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($join_bg['url']) . ');"';
@@ -848,8 +848,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="contacts" class="contacts" <?php 
+    </section>
+    <section id="contacts" class="contacts" <?php 
         $contacts_bg = get_field('contacts_bg');
         if (is_array($contacts_bg) && !empty($contacts_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($contacts_bg['url']) . ');"';
@@ -1017,8 +1017,9 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
+    </section>
+    
 
 </main>
 
-<!-- <?php get_footer(); ?> -->
+<?php get_footer(); ?>

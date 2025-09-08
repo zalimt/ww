@@ -99,6 +99,15 @@ function wise_wolves_enqueue_styles() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+
+    // Enqueue modals JavaScript
+    wp_enqueue_script(
+        'wise-wolves-modals',
+        get_stylesheet_directory_uri() . '/js/modals.js',
+        array(),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'wise_wolves_enqueue_styles', 5 ); // Lower priority so plugin styles can override
 
@@ -200,6 +209,17 @@ function wise_wolves_theme_setup() {
     ) );
 }
 add_action( 'after_setup_theme', 'wise_wolves_theme_setup' );
+
+/**
+ * Override the document title on the homepage
+ */
+function wise_wolves_custom_document_title( $title ) {
+	if ( is_front_page() || is_home() ) {
+		return 'Wise Wolves';
+	}
+	return $title;
+}
+add_filter( 'pre_get_document_title', 'wise_wolves_custom_document_title' );
 
 /**
  * Customizer additions
