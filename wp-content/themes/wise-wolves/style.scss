@@ -2439,6 +2439,8 @@ html {
                 background-position: center;
                 background-repeat: no-repeat;
 
+                .business-buttons--mobile { display: none; }
+
 
                 .business-description {
                     color: #FFF;
@@ -2722,6 +2724,7 @@ html {
 @media (max-width: 900px) {
     .our-services {
         padding: 40px 30px 0;
+        overflow: hidden;
 
         .container {
             padding-left: 0;
@@ -2791,27 +2794,42 @@ html {
                 max-width: 300px;
                 margin: 0 auto 20px;
             }
-            .investments-content {
+            .investments-content,
+            .digital-assets-content,
+            .technology-content {
                 display: flex;
                 flex-direction: column;
 
                 .investment-left,
-                .investment-right {
+                .investment-right,
+                .business-support-left,
+                .business-support-right,
+                .digital-assets-left,
+                .digital-assets-right,
+                .technology-left,
+                .technology-right {
                     margin: 0 auto;
                 }
-                .investment-left {
+                .investment-left,
+                .business-support-left,
+                .digital-assets-left,
+                .technology-right {
                     padding: 20px;
                     max-width: 400px;
                     width: 100%;
 
                 }
-                .investment-right {
+                .investment-right,
+                .business-support-right,
+                .digital-assets-right,
+                .technology-left {
                     border-radius: 0;
                     @media (max-width: 600px) {
                         min-width: 100vw;
                         margin-left: -30px;
                     }
-                    .investment-card-title {
+                    .investment-card-title,
+                    .technology-top-banner {
                         font-size: 16px;
                     }
                     .investment-bullets {
@@ -2831,6 +2849,162 @@ html {
                     max-width: 100%;
                     width: 100%;
                 }
+                .business-support-right {
+                    .business-buttons--mobile { display: block; margin-top: 20px; }
+                }
+            }
+        }
+        .investments-section {
+            margin-bottom: 30px;
+        }
+        .business-support-section {
+            background: none;
+            background-image: none !important;
+
+            .business-support-content {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                .business-support-left {
+                    .business-left-wrapper {
+                        .section-header {
+                            margin-bottom: 0;
+                            .section-title {
+                                font-size: 24px;
+                            }
+                            .section-tooltip {
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px;
+                                border-radius: 0;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                                height: auto;
+                                margin-right: -50px;
+                                margin-left: -50px;
+                                width: 100%;
+                                min-width: 100vw;
+                                padding-left: 20px;
+                                padding-right: 20px;
+                                margin-bottom: 30px;
+                            }
+                        }
+                        .business-bullets {
+                            max-width: 400px;
+                            margin: 0 auto;
+                            ul li {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .business-buttons {
+                        display: none;
+                    }
+                }
+                .business-support-right {
+                    background-image: url(/wp-content/uploads/2025/09/OS-Business-Support-bg.webp);
+                    border-radius: 0;
+                    margin-right: -50px;
+                    margin-left: -50px;
+                    .business-buttons--mobile {
+                        display: flex;
+                        flex-direction: column;
+
+                        .buttons-title {
+                            font-size: 16px;
+                            color: #FFF;
+                            margin-bottom: 20px;
+                        }
+                        .button-group {
+                            gap: 10px;
+                            display: flex;
+                            flex-direction: column;
+                            .ww-btn {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .business-description {
+                        font-size: 14px;
+                        line-height: 140%;
+                        margin-bottom: 160px;
+                    }
+                    .business-caption {
+                        right: -50px;
+                        bottom: 250px;
+                    }
+                }
+            }
+        }
+        .digital-assets-section {
+            .digital-assets-content {
+                .digital-assets-left {
+                    .section-title {
+                        font-size: 24px;
+                        max-width: 360px;
+                    }
+                    .investment-card-title {
+                        font-size: 16px;
+                    }
+                    .investment-bullets {
+                        .ww-btn {
+                           display: flex;
+                        }
+                    }
+                }
+                .digital-assets-right {
+                    .investment-card-title {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .technology-section {
+            .technology-content {
+                flex-direction: column-reverse;
+                .technology-left {
+                    .technology-top-banner {
+                        width: 100%;
+                    }
+                }
+                .technology-right {
+                    .technology-title {
+                        .title-main {
+                            color: #000;
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: 300;
+                            line-height: 100%; /* 24px */
+                            letter-spacing: -1.5px;
+                        }
+                        .title-sub {
+                            color: #D1D1D1;
+                            font-size: 24px;
+                            font-style: normal;
+                            font-weight: 300;
+                            line-height: 100%;
+                            letter-spacing: -1.5px;
+                        }
+                    }
+                    .technology-description {
+                        color: #656565;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 130%; /* 20.8px */
+                    }
+                    .technology-buttons {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        .ww-btn {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
             }
         }
 

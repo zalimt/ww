@@ -549,6 +549,30 @@ get_header(); ?>
                         <div class="business-description">
                             <?php echo esc_html(get_field('business_suport_business_support_right_description')); ?>
                         </div>
+                        
+                        <!-- Mobile-only duplicate of business buttons -->
+                        <div class="business-buttons business-buttons--mobile">
+                            <h4 class="buttons-title"><?php echo esc_html(get_field('business_suport_business_support_btns_title')); ?></h4>
+                            <div class="button-group">
+                                <?php if (get_field('business_suport_business_support_btn_1_text') && get_field('business_suport_business_support_btn_1_link')): ?>
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_1_link')); ?>" class="ww-btn ww-btn-white" target="_blank">
+                                        <?php echo esc_html(get_field('business_suport_business_support_btn_1_text')); ?>
+                                    </a>
+                                <?php endif; ?>
+                                
+                                <?php if (get_field('business_suport_business_support_btn_2_text') && get_field('business_suport_business_support_btn_2_link')): ?>
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_2_link')); ?>" class="ww-btn ww-btn-white" target="_blank">
+                                        <?php echo esc_html(get_field('business_suport_business_support_btn_2_text')); ?>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if (get_field('business_suport_business_support_btn_3_text') && get_field('business_suport_business_support_btn_3_link')): ?>
+                                    <a href="<?php echo esc_url(get_field('business_suport_business_support_btn_3_link')); ?>" class="ww-btn ww-btn-white" target="_blank">
+                                        <?php echo esc_html(get_field('business_suport_business_support_btn_3_text')); ?>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        
                         <div class="business-caption">
                             <?php echo wp_kses(get_field('business_suport_business_support_right_caption'), array(
                                 'p' => array(),
