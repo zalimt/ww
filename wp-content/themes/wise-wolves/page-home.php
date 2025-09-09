@@ -72,17 +72,32 @@ get_header(); ?>
                     if ($tabs): ?>
                         <div class="services-grid">
                             <?php foreach ($tabs as $tab): ?>
-                                <div class="service-item">
-                                    <?php if ($tab['ww-corporation_tab_icon']): ?>
-                                        <div class="service-icon">
-                                            <img src="<?php echo esc_url($tab['ww-corporation_tab_icon']['url']); ?>" 
-                                                 alt="<?php echo esc_attr($tab['ww-corporation_tab_icon']['alt']); ?>">
+                                <?php $tab_link = isset($tab['ww-corporation_tab_link']) ? trim($tab['ww-corporation_tab_link']) : ''; ?>
+                                <?php if ($tab_link): ?>
+                                    <a class="service-item" href="<?php echo esc_url($tab_link); ?>" target="_blank" rel="noopener">
+                                        <?php if ($tab['ww-corporation_tab_icon']): ?>
+                                            <div class="service-icon">
+                                                <img src="<?php echo esc_url($tab['ww-corporation_tab_icon']['url']); ?>" 
+                                                     alt="<?php echo esc_attr($tab['ww-corporation_tab_icon']['alt']); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="service-title">
+                                            <?php echo esc_html($tab['ww-corporation_tab_title']); ?>
                                         </div>
-                                    <?php endif; ?>
-                                    <div class="service-title">
-                                        <?php echo esc_html($tab['ww-corporation_tab_title']); ?>
+                                    </a>
+                                <?php else: ?>
+                                    <div class="service-item">
+                                        <?php if ($tab['ww-corporation_tab_icon']): ?>
+                                            <div class="service-icon">
+                                                <img src="<?php echo esc_url($tab['ww-corporation_tab_icon']['url']); ?>" 
+                                                     alt="<?php echo esc_attr($tab['ww-corporation_tab_icon']['alt']); ?>">
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="service-title">
+                                            <?php echo esc_html($tab['ww-corporation_tab_title']); ?>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
