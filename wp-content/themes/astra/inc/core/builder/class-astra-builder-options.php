@@ -993,8 +993,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	}
 	$defaults['global-color-palette'] = $apply_new_default_color_typo_values ? array(
 		'palette' => array(
-			'#046bd2',
-			'#045cb4',
+			'#0E2B40',
+			'#0E2B40',
 			'#1e293b',
 			'#334155',
 			$color_palette_reorganize ? '#FFFFFF' : ( $update_colors_for_starter_library ? '#F0F5FA' : '#f9fafb' ),

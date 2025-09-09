@@ -994,6 +994,24 @@ html {
     text-align: center;
     margin: 0;
 }
+@media (max-width: 900px) {
+    .ww-modal.open {
+        padding: 0 20px;
+
+        .ww-modal-close {
+            right: 0;
+        }
+    }
+    .ww-contact-card {
+
+        .ww-contact-left {
+            width: 100%;
+        }
+        .ww-contact-right {
+            display: none;
+        }
+    }
+}
 
 // Mobile Responsive
 @media (max-width: 900px) {
@@ -1345,7 +1363,7 @@ html {
 
         .stat-item {
             padding: 30px;
-            min-height: 185px;
+            min-height: 195px;
             position: relative;
             .stat-number {
                 font-size: 22px;
@@ -1429,7 +1447,7 @@ html {
             }
             .stat-description {
                 color: #fff;
-                max-width: 85%;
+                max-width: 260px;
             }
         }
     }
@@ -3449,6 +3467,7 @@ html {
 // PARTNERSHIP PROGRAM SECTION
 .partnership-program {
     padding: 70px 0;
+    background-color: #FAFAFA;
 
     .program-top {
         display: flex;
@@ -3596,6 +3615,7 @@ html {
             gap: 10px;
             .program-title-block {
                 flex: 1;
+                width: 100%;
         
                 .program-title {
                     color: #000;
@@ -3633,6 +3653,7 @@ html {
                     flex-shrink: 0;
                     width: 100%;
                     margin-bottom: 20px;
+                    max-width: 100%;
                 }
             }
             .program-description {

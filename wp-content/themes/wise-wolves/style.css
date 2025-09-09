@@ -866,6 +866,20 @@ html {
 }
 
 @media (max-width: 900px) {
+  .ww-modal.open {
+    padding: 0 20px;
+  }
+  .ww-modal.open .ww-modal-close {
+    right: 0;
+  }
+  .ww-contact-card .ww-contact-left {
+    width: 100%;
+  }
+  .ww-contact-card .ww-contact-right {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
   .wise-wolves-footer .footer-content {
     max-width: 900px;
     margin: 0 auto;
@@ -1167,7 +1181,7 @@ html {
 }
 .ww-stats .stats-row-2 .stat-item {
   padding: 30px;
-  min-height: 185px;
+  min-height: 195px;
   position: relative;
 }
 .ww-stats .stats-row-2 .stat-item .stat-number {
@@ -1246,7 +1260,7 @@ html {
 }
 .ww-stats .stats-row-2 .stat-item:last-child .stat-description {
   color: #fff;
-  max-width: 85%;
+  max-width: 260px;
 }
 .ww-stats .stats-row-3 {
   grid-template-columns: 1fr 1fr 1fr;
@@ -3101,6 +3115,7 @@ html {
 }
 .partnership-program {
   padding: 70px 0;
+  background-color: #FAFAFA;
 }
 .partnership-program .program-top {
   display: flex;
@@ -3228,6 +3243,7 @@ html {
   }
   .partnership-program .program-top .program-title-block {
     flex: 1;
+    width: 100%;
   }
   .partnership-program .program-top .program-title-block .program-title {
     color: #000;
@@ -3262,6 +3278,7 @@ html {
     flex-shrink: 0;
     width: 100%;
     margin-bottom: 20px;
+    max-width: 100%;
   }
   .partnership-program .program-top .program-description p {
     color: #656565;

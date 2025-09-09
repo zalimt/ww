@@ -132,7 +132,7 @@ class Astra_Global_Palette {
 			'currentPalette' => 'palette_1',
 			'palettes'       => $update_color_styles_with_presets ? array(
 				'palette_1' => array(
-					'#046bd2',
+					'#0E2B40',
 					'#045cb4',
 					'#1e293b',
 					'#334155',
@@ -177,7 +177,7 @@ class Astra_Global_Palette {
 				),
 			) : array(
 				'palette_1' => array(
-					'#046bd2',
+					'#0E2B40',
 					'#045cb4',
 					'#1e293b',
 					'#334155',

@@ -6128,7 +6128,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'background'   => 'var( --ast-global-color-secondary, --ast-global-color-5 )',
 				),
 				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus' => array(
-					'border-color' => 'var(--ast-global-color-0, #046BD2)',
+					'border-color' => 'var(--ast-global-color-0, #0E2B40)',
 					'box-shadow'   => 'none',
 					'outline'      => 'none',
 					'color'        => 'var(--ast-form-input-focus-text, #475569)',
@@ -6171,7 +6171,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding' => '6px 10px',
 					),
 					'.wpcf7 input.wpcf7-form-control:not([type=submit]):focus, .wpcf7 select.wpcf7-form-control:focus, .wpcf7 textarea.wpcf7-form-control:focus' => array(
-						'border-color' => 'var(--ast-global-color-0, #046BD2)',
+						'border-color' => 'var(--ast-global-color-0, #0E2B40)',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
 						'color'        => 'var(--ast-form-input-focus-text, #475569)',
@@ -6205,7 +6205,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'background-color' => 'inherit',
 					),
 					'input[type="radio"].gfield-choice-input:focus, input[type="checkbox"].gfield-choice-input:focus, .ginput_container_consent input[type="checkbox"]:focus' => array(
-						'border-color' => 'var(--ast-global-color-0, #046BD2)',
+						'border-color' => 'var(--ast-global-color-0, #0E2B40)',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
 						'color'        => 'var(--ast-form-input-focus-text, #475569)',
@@ -6224,7 +6224,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$selected_outline_style = $input_highlight ? $outline_input_style : $outline_style;
 				$selected_outline_color = $input_highlight ? $outline_input_color : $outline_color;
 				$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
-					'border-color' => $selected_outline_color ? $selected_outline_color : '#046BD2',
+					'border-color' => $selected_outline_color ? $selected_outline_color : '#0E2B40',
 					'box-shadow'   => 'none',
 					'outline'      => 'none',
 					'color'        => 'var(--ast-form-input-focus-text, #475569)',
@@ -6234,7 +6234,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( defined( 'WPCF7_VERSION' ) ) {
 					$forms_default_styling_css['.wpcf7 input.wpcf7-form-control:not([type=submit]):focus, .wpcf7 select.wpcf7-form-control:focus, .wpcf7 textarea.wpcf7-form-control:focus'] = array(
 						'border-style' => $selected_outline_style ? $selected_outline_style : 'inherit',
-						'border-color' => $selected_outline_color ? $selected_outline_color : '#046BD2',
+						'border-color' => $selected_outline_color ? $selected_outline_color : '#0E2B40',
 						'border-width' => 'thin',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
@@ -6246,7 +6246,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( class_exists( 'GFForms' ) ) {
 					$forms_default_styling_css['input[type="radio"].gfield-choice-input:focus, input[type="checkbox"].gfield-choice-input:focus, .ginput_container_consent input[type="checkbox"]:focus'] = array(
 						'border-style' => $selected_outline_style ? $selected_outline_style : 'inherit',
-						'border-color' => $selected_outline_color ? $selected_outline_color : '#046BD2',
+						'border-color' => $selected_outline_color ? $selected_outline_color : '#0E2B40',
 						'border-width' => 'thin',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
