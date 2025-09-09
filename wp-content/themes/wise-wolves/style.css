@@ -528,6 +528,7 @@ html {
 @media (max-width: 900px) {
   .career-corporate-culture {
     padding: 30px 40px 30px;
+    overflow: hidden;
   }
   .career-corporate-culture .container {
     padding-left: 0;
@@ -567,6 +568,10 @@ html {
   }
   .career-corporate-culture .career-cards .career-card {
     width: 100%;
+    padding: 10px;
+  }
+  .career-corporate-culture .career-cards .career-card .card-image a {
+    font-size: 14px;
   }
 }
 .wise-wolves-footer {
@@ -2688,6 +2693,7 @@ html {
   }
   .our-services .technology-section .technology-content .technology-left .technology-top-banner {
     width: 100%;
+    font-size: 14px;
   }
   .our-services .technology-section .technology-content .technology-right .technology-title .title-main {
     color: #000;
@@ -2815,47 +2821,86 @@ html {
   position: absolute;
   right: 20px;
   bottom: 10px;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.our-people .people-card .people-info .people-linkedin img {
+  width: 100%;
+  height: 100%;
+  filter: invert(27%) sepia(99%) saturate(742%) hue-rotate(178deg) brightness(92%) contrast(89%);
+}
 
-@media (max-width: 1024px) {
-  .our-people .people-header .people-title {
-    font-size: 48px;
-  }
-  .our-people .people-card {
-    flex: 0 0 250px;
+.our-people .people-slider-controls--mobile {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .our-people .people-slider-controls--mobile {
+    display: none !important;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .our-people {
-    padding: 50px 0;
+    padding: 40px 30px;
+    overflow: hidden;
+  }
+  .our-people .container {
+    padding-left: 0;
+    padding-right: 0;
   }
   .our-people .people-header {
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
+    margin-bottom: 0;
   }
   .our-people .people-header .people-title {
-    font-size: 36px;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .our-people .people-header .people-slider-controls {
+    display: none;
+  }
+  .our-people .people-slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin: 0 auto;
+  }
+  .our-people .people-slider {
+    gap: 0;
+    width: 300px;
+    margin: 0 auto;
   }
   .our-people .people-card {
-    flex: 0 0 220px;
+    flex: 0 0 300px;
+    width: 300px;
+    max-width: 300px;
   }
-  .our-people .people-card .people-photo {
-    height: 220px;
+  .our-people .people-slider-controls--mobile {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
   }
-  .our-people .people-card .people-info {
-    padding: 20px;
-  }
-  .our-people .people-card .people-info .people-name {
-    font-size: 18px;
-  }
-  .our-people .people-card .people-info .people-title {
-    font-size: 14px;
+  .our-people .people-slider-controls--mobile .people-slider-arrow {
+    display: flex;
+    width: 55px;
+    height: 26px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: #EEE;
+    color: #656565;
   }
 }
 .our-clients {
@@ -3305,6 +3350,7 @@ html {
 }
 .join-a-team .join-left .join-title span {
   color: #B2B2B2;
+  display: block;
 }
 .join-a-team .join-left .join-description {
   color: #656565;
@@ -3337,23 +3383,59 @@ html {
   padding: 15px;
   border-radius: 5px;
 }
-@media (max-width: 1024px) {
-  .join-a-team .join-content {
-    grid-template-columns: 1fr;
-  }
-  .join-a-team .join-right {
-    justify-content: flex-start;
-  }
-}
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .join-a-team {
-    padding: 60px 0;
+    padding: 40px 30px 0;
+    margin-top: 0;
+    background-position: -170px 0px;
   }
-  .join-a-team .join-left .join-title {
-    font-size: 36px;
+  .join-a-team .container {
+    padding-left: 0;
+    padding-right: 0;
   }
-  .join-a-team .join-left .join-description {
-    font-size: 18px;
+  .join-a-team .join-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .join-a-team .join-content .join-left {
+    width: 100%;
+  }
+  .join-a-team .join-content .join-left .join-title {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 110%; /* 26.4px */
+    letter-spacing: -1.5px;
+  }
+  .join-a-team .join-content .join-left .join-title p {
+    margin-bottom: 20px;
+  }
+  .join-a-team .join-content .join-left .join-description {
+    color: #656565;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+  .join-a-team .join-content .join-left .ww-btn {
+    min-width: 100%;
+    margin-bottom: 30px;
+  }
+  .join-a-team .join-content .join-right {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin-right: -30px;
+    margin-left: -30px;
+    min-width: 100vw;
+    padding-left: 30px;
   }
 }
 
@@ -3465,28 +3547,53 @@ html {
   line-height: 150%;
   margin-top: -3px;
 }
-@media (max-width: 1024px) {
-  .contacts .contacts-grid {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 900px) {
+  .contacts {
+    padding: 40px 30px 100px;
+  }
+  .contacts .container {
+    padding-left: 0;
+    padding-right: 0;
   }
   .contacts .contacts-header {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 5px;
   }
-}
-@media (max-width: 768px) {
-  .contacts {
-    padding: 60px 0;
+  .contacts .contacts-header .contacts-title {
+    color: #FFF;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 26px */
+    letter-spacing: -1.5px;
+  }
+  .contacts .contacts-header .contacts-subtitle {
+    background: linear-gradient(269deg, #FFF 21.49%, #17202C 118.04%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%; /* 24px */
+    letter-spacing: -1.5px;
+    padding-left: 45px;
   }
   .contacts .contacts-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
-  .contacts .contacts-title {
-    font-size: 42px;
+  .contacts .contacts-grid .contact-card {
+    width: 100%;
   }
-  .contacts .contacts-subtitle {
-    font-size: 28px;
+  .contacts .contacts-grid .contact-card .card-top .card-country {
+    font-size: 20px;
+  }
+  .contacts .contacts-grid .contact-card .card-list li span {
+    font-size: 14px;
   }
 }
 

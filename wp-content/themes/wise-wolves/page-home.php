@@ -874,7 +874,7 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <!-- <section id="our-people" class="our-people">
+    <section id="our-people" class="our-people">
         <div class="container">
             <div class="people-header">
                 <h2 class="people-title">
@@ -912,7 +912,7 @@ get_header(); ?>
                                     </p>
                                     <?php if (!empty($card['our_people_card_link'])): ?>
                                         <a class="people-linkedin" href="<?php echo esc_url($card['our_people_card_link']); ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M19 0H5C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zM7.07 20.452H3.56V9.036h3.51v11.416zM5.315 7.548a2.035 2.035 0 1 1 0-4.07 2.035 2.035 0 0 1 0 4.07zM20.452 20.452h-3.51v-5.564c0-1.328-.026-3.037-1.851-3.037-1.853 0-2.136 1.447-2.136 2.943v5.658H9.446V9.036h3.369v1.561h.047c.469-.889 1.615-1.826 3.325-1.826 3.558 0 4.212 2.343 4.212 5.389v6.292z" fill="#0A66C2"/></svg>
+                                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
                                         </a>
                                     <?php endif; ?>
                                 </div>
@@ -920,10 +920,14 @@ get_header(); ?>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
+                <div class="people-slider-controls--mobile">
+                    <button class="people-slider-arrow people-slider-prev" aria-label="Previous"><</button>
+                    <button class="people-slider-arrow people-slider-next" aria-label="Next">></button>
+                </div>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="join-a-team" class="join-a-team" <?php 
+    </section>
+    <section id="join-a-team" class="join-a-team" <?php 
         $join_bg = get_field('join_a_team_bg');
         if (is_array($join_bg) && !empty($join_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($join_bg['url']) . ');"';
@@ -949,8 +953,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="contacts" class="contacts" <?php 
+    </section>
+    <section id="contacts" class="contacts" <?php 
         $contacts_bg = get_field('contacts_bg');
         if (is_array($contacts_bg) && !empty($contacts_bg['url'])) {
             echo 'style="background-image: url(' . esc_url($contacts_bg['url']) . ');"';
@@ -1118,7 +1122,7 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
+    </section>
 </main>
 <?php get_footer(); ?>
 
