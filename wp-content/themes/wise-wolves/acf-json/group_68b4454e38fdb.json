@@ -135,6 +135,28 @@
                     "placeholder": "",
                     "new_lines": "",
                     "parent_repeater": "field_68b46f1432c8b"
+                },
+                {
+                    "key": "field_68c0296a0acb0",
+                    "label": "WW-Corporation Tab Link",
+                    "name": "ww-corporation_tab_link",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_68b46f1432c8b"
                 }
             ]
         }
@@ -157,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1756656066
+    "modified": 1757424002
 }
