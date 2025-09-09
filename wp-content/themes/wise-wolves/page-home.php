@@ -661,7 +661,7 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <!-- <section id="our-clients" class="our-clients">
+    <section id="our-clients" class="our-clients">
         <div class="container">
             <div class="clients-top">
                 <div class="clients-title-block">
@@ -708,8 +708,8 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
-    <!-- <section id="partnership-program" class="partnership-program">
+    </section>
+    <section id="partnership-program" class="partnership-program">
         <div class="container">
             <div class="program-top">
                 <div class="program-title-block">
@@ -750,8 +750,8 @@ get_header(); ?>
             <a class="ww-btn ww-btn-blue" href="#partnership-program" data-ww-modal="partner"><?php echo esc_html($pp_btn_text); ?></a>
             <?php endif; ?>
         </div>
-    </section> -->
-    <!-- <section id="career-corporate-culture" class="career-corporate-culture">
+    </section>
+    <section id="career-corporate-culture" class="career-corporate-culture">
         <div class="container">
             <div class="career-top">
                 <div class="career-title-block">
@@ -873,7 +873,7 @@ get_header(); ?>
                 <?php endif; ?>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- <section id="our-people" class="our-people">
         <div class="container">
             <div class="people-header">
